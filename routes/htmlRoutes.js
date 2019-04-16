@@ -11,7 +11,12 @@ module.exports = function(app) {
     if (req.user) {
       res.redirect("/members");
     }
-    res.sendFile(path.join(__dirname, "../public/signup.html"));
+    // res.sendFile(path.join(__dirname, "../public/signup.html"));
+    res.render("signup", {
+      title: "Sign Up",
+      customcss: `<link rel="stylesheet" href="/styles/styles.css"></link>`,
+      customjs: `<script type="text/javascript" src="/js/signup.js"></script>\n<script type="text/javascript" src="/js/index.js"></script>`
+    });
   });
 
   app.get("/login", function(req, res) {
@@ -19,13 +24,22 @@ module.exports = function(app) {
     if (req.user) {
       res.redirect("/members");
     }
-    res.sendFile(path.join(__dirname, "../public/login.html"));
+    // res.sendFile(path.join(__dirname, "../public/login.html"));
+    res.render("login", {
+      title: "Log In",
+      customcss: `<link rel="stylesheet" href="/styles/styles.css"></link>`,
+      customjs: `<script type="text/javascript" src="/js/login.js"></script>\n<script type="text/javascript" src="/js/index.js"></script>`
+    });
   });
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/members.html"));
+    res.render("members", {
+      title: "Log In",
+      customcss: `<link rel="stylesheet" href="/styles/styles.css"></link>`,
+      customjs: `<script type="text/javascript" src="/js/members.js"></script>\n<script type="text/javascript" src="/js/index.js"></script>`
+    });
   });
   
   // app.get("/", function(req, res) {
@@ -37,7 +51,7 @@ module.exports = function(app) {
   //   });
   // });
 
-  // Load example page and pass in an example by id
+  // // Load example page and pass in an example by id
   // app.get("/example/:id", function(req, res) {
   //   db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
   //     res.render("example", {

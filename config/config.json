@@ -1,11 +1,20 @@
 {
   "local": {
+<<<<<<< HEAD
     "username": "root",
     "password": "1245690",
     "database": "exampledb",
     "host": "127.0.0.1",
     "dialect": "mysql"
     },
+=======
+   "username": "root",
+   "password": "",
+   "database": "exampledb",
+   "host": "127.0.0.1",
+   "dialect": "mysql"
+  },
+>>>>>>> master
   "development": {
     "username": "root",
     "password": null,
