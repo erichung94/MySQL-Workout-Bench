@@ -1,8 +1,16 @@
 {
+  "local": {
+    "username": "root",
+    "password": "root",
+    "database": "project2_db",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+    },
   "development": {
     "username": "root",
-    "password": null,
-    "database": "exampledb",
+    "password": "root",
+    "port": "3307",
+    "database": "project2_db",
     "host": "localhost",
     "dialect": "mysql"
   },
