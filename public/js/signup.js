@@ -1,6 +1,8 @@
 $(document).ready(function() {
   // Getting references to our form and input
   var signUpForm = $("form.signup");
+  var firstNameInput = $("input#inputFirstName");
+  var lastNameInput = $("input#inputLastName");
   var emailInput = $("input#email-input");
   var passwordInput = $("input#password-input");
 
@@ -9,6 +11,8 @@ $(document).ready(function() {
     console.log("submitted");
     event.preventDefault();
     var userData = {
+      firstName: firstNameInput.val().trim(),
+      lastName: lastNameInput.val().trim(),
       email: emailInput.val().trim(),
       password: passwordInput.val().trim()
     };
@@ -16,16 +20,20 @@ $(document).ready(function() {
     if (!userData.email || !userData.password) {
       return;
     }
-    // If we have an email and password, run the signUpUser function
-    signUpUser(userData.email, userData.password);
+    // If we have all the fields, run the signUpUser function
+    signUpUser(userData.firstName, userData.lastName, userData.email, userData.password);
+    firstNameInput.val("");
+    lastNameInput.val("");
     emailInput.val("");
     passwordInput.val("");
   });
 
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
-  function signUpUser(email, password) {
+  function signUpUser(firstName, lastName, email, password) {
     $.post("/api/signup", {
+      firstName: firstName,
+      lastName: lastName,
       email: email,
       password: password
     }).then(function(data) {

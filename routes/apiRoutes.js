@@ -21,6 +21,8 @@ module.exports = function(app) {
     console.log("YOU ARE HEREEEEEE");
     console.log(req.body);
     db.User.create({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
       email: req.body.email,
       password: req.body.password
     }).then(function() {
@@ -48,6 +50,8 @@ module.exports = function(app) {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         email: req.user.email,
         id: req.user.id
       });
