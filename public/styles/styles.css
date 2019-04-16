@@ -1,5 +1,8 @@
 body {
-  background-color: #353F4B;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)), url(../images/login-background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
 }
 
 /* Form Styling */
@@ -8,21 +11,25 @@ body {
 }
 
 form {
-  background-color: #3C4B5C;
+  background-color: rgba(0, 0, 0, .8);
   border-radius: 10px;
   box-shadow: 0 2px 40px rgba(0, 0,0, .5);
 }
 
 label {
-  color: #90A2B8;
+  color: white;
+  font-family: arial;
 }
 
 #form-header {
-  color: #90A2B8;
+  color: white;
+  font-family: arial;
+  font-weight: bold;
 }
 
 .form-control {
-  background-color: #55677B;
+  /* background-color: #55677B; */
+  background-color: #495058b3;
   border: 0;
   color: white;
 }
@@ -37,4 +44,14 @@ label {
   box-shadow: 0 0 0;
   color: white;
   transition: border .2s ease-in;
+}
+
+#loginSubmit {
+  background-color: #6598FF;
+  font-family: arial;
+  font-weight: bold;
+}
+
+#loginSubmit:hover {
+  background-color: #5C8CE6;
 }
