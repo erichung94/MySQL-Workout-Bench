@@ -7,6 +7,7 @@ $(document).ready(function() {
   // When the signup button is clicked, we validate the email and password are not blank
   // Create new profile page, does not redirect to current user page
   signUpForm.on("submit", function(event) {
+    console.log("submitted");
     event.preventDefault();
     var userData = {
       email: emailInput.val().trim(),
