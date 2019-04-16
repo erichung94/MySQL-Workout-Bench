@@ -60,4 +60,12 @@ label {
   body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)), url(../images/mobile-login.jpg);;
   }
+
+  form {
+    background-color: rgba(0, 0, 0, .6);
+  }
+
+  .form-control {
+    background-color: #495058e6;
+  }
 }
