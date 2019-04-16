@@ -1,8 +1,39 @@
-.list-group-item {
-  line-height: 2.5;
+body {
+  background-color: #353F4B;
 }
 
-form.signup,
-form.login {
-  margin-top: 50px;
+#form-card {
+  padding: 150px 0;
+}
+
+form {
+  background-color: #3C4B5C;
+  border-radius: 10px;
+  box-shadow: 0 2px 40px rgba(0, 0,0, .5);
+}
+
+label {
+  color: #90A2B8;
+}
+
+#form-header {
+  color: #90A2B8;
+}
+
+.form-control {
+  background-color: #55677B;
+  border: 0;
+  color: white;
+}
+
+.form-control::placeholder {
+  color: rgba(145, 162, 183, .5);
+}
+
+.form-control:focus {
+  background-color: #55677B;
+  border: 1.5px solid #548BFF;
+  box-shadow: 0 0 0;
+  color: white;
+  transition: border .2s ease-in;
 }
