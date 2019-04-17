@@ -1,15 +1,27 @@
 module.exports = function(sequelize, DataTypes) {
 
     var Workout = sequelize.define("Workout", {
-        type: DataTypes.STRING,
-        allowNull: false,
+        activity: { 
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        time: { 
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        location: { 
+            type: DataTypes.STRING,
+            allowNull: true
+        }
     });
 
     // We're saying that a Workout should belong to an User
     Workout.associate = function(models) {
         // A Workout can't be created without an  due to the foreign key constraint
-        Workout.belongsToMany(models.User, {
-            through: "UserWorkout" });
+        models.Workout.belongsToMany(models.User, {
+            through: models.UserWorkout 
+        });
+        // Workout.hasMany(models.UserWorkout);
     };    
     return Workout;
 };
