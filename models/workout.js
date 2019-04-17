@@ -21,7 +21,6 @@ module.exports = function(sequelize, DataTypes) {
         models.Workout.belongsToMany(models.User, {
             through: models.UserWorkout 
         });
-        // Workout.hasMany(models.UserWorkout);
     };    
     return Workout;
 };

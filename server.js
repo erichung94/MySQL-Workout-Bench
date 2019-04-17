@@ -1,7 +1,7 @@
 require("dotenv").config();
 var express = require("express");
-var exphbs = require("express-handlebars");
-var session = require("express-session");
+var exphbs = require("express-handlebars")
+var session = require("express-session");;
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
 
@@ -31,6 +31,7 @@ app.set("view engine", "handlebars");
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
+
 
 var syncOptions = { force: false };
 
