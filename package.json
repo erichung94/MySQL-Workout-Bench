@@ -33,6 +33,9 @@
     "mocha": "^5.2.0",
     "prettier": "^1.13.7"
   },
+  "script": {
+    "test": "mocha"
+  },
   "directories": {
     "test": "test"
   },
