@@ -1,0 +1,41 @@
+body {
+  background-color: #2a323c;
+}
+
+.activity-image {
+  height: 150px;
+}
+
+.activity-square {
+  background-color: #333c48;
+}
+
+.activity-square:hover {
+  background-color: #37414e;
+  cursor: pointer;
+}
+
+.left-activity-square {
+  border-right: 2px solid #3E4957;
+  border-bottom: 2px solid #3E4957;
+}
+
+.right-activity-square {
+  border-left: 2px solid #242B33;
+  border-bottom: 2px solid #3E4957;
+}
+
+.activity-square-body {
+  border-top: 2px solid #242B33;
+}
+
+.activity-square p {
+  color: white;
+  font-family: arial;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+#moreSoon {
+  color: #8DA0B5;
+}
