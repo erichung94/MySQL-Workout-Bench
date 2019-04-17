@@ -1,6 +1,10 @@
 body {
-  background-color: #c2c9d1;
+  /* background-color: #c2c9d1; */
   height: 100vh;
+}
+
+.container-fluid {
+  box-shadow: 0 0 40px #dee2e6;
 }
 
 .activity-image {
