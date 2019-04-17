@@ -26,10 +26,7 @@ fs.readdirSync(__dirname)
         );
     })
     .forEach(function(file) {
-        console.log("file: ", file, __dirname);  
-        console.log(path.join(__dirname, file));
         var model = sequelize.import(path.join(__dirname, file));
-        console.log("model: ", model);
         db[model.name] = model;
     });
 Object.keys(db).forEach(function(modelName) {
@@ -41,7 +38,6 @@ Object.keys(db).forEach(function(modelName) {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
-
 
 
 module.exports = db;
