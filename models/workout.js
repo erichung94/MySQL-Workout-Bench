@@ -11,4 +11,5 @@ module.exports = function(sequelize, DataTypes) {
         Workout.belongsToMany(models.User, {
             through: "UserWorkout" });
     };    
+    return Workout;
 };
