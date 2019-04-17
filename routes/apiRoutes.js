@@ -12,7 +12,7 @@ module.exports = function(app) {
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
     console.log(req.body);
     // The redirect will happen on the front end
-    res.json("/members");
+    res.json("/profile");
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely
