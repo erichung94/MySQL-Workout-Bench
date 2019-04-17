@@ -40,12 +40,12 @@ module.exports = function(sequelize, DataTypes) {
     User.hook("beforeCreate", function(user) {
         user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
     });
+  
+    // Associating Users with Workouts
+    User.associate = function(models){
+        User.belongsToMany(models.Workout, {
+            through: "UserWorkout" });
+    };
+      
     return User;
 };
-
-// Associating Users with Workouts
-User.associate = function(models){
-    User.belongsToMany(models.Workout, {
-        through: "UserWorkout" });
-};
-  
