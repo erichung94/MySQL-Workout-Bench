@@ -9,7 +9,7 @@ var bcrypt = require("bcrypt-nodejs");
 module.exports = function(sequelize, DataTypes) {
     var User = sequelize.define("User", {
         id: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
         },
@@ -37,12 +37,13 @@ module.exports = function(sequelize, DataTypes) {
     User.hook("beforeCreate", function(user) {
         user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
     });
-    return User;
-};
 
-// Associating Users with Workouts
-User.associate = function(models){
-    User.belongsToMany(models.Workout, {
-        through: "UserWorkout" });
+    // Associating Users with Workouts
+    User.associate = function(models){
+        User.belongsToMany(models.Workout, {
+            through: "UserWorkout" });
+          };
+          return User;
+
 };
   

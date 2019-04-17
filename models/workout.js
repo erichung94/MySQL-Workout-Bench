@@ -1,8 +1,19 @@
 module.exports = function(sequelize, DataTypes) {
 
     var Workout = sequelize.define("Workout", {
-        type: DataTypes.STRING,
-        allowNull: false,
+        id: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
+        activity: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        time: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }
     });
 
     // We're saying that a Workout should belong to an User
@@ -11,4 +22,5 @@ module.exports = function(sequelize, DataTypes) {
         Workout.belongsToMany(models.User, {
             through: "UserWorkout" });
     };    
+    return Workout;
 };

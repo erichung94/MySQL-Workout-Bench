@@ -8,6 +8,10 @@ module.exports = {
                 autoIncrement: true,
                 primaryKey: true
             },
+            activity: {
+                type: Sequelize.STRING,
+                allowNull: false
+            },
             time: {
                 type: Sequelize.STRING,
                 allowNull: false
