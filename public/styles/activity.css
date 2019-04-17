@@ -2,4 +2,8 @@ body {
   background-color: #353f4b
 }
 
-
+.row {
+  padding: 10px;
+  background-color: #3C4B5C;
+  margin-top: 10px;
+}
