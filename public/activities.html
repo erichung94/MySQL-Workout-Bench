@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <title>Create An Account</title>
   <meta charset="UTF-8">
@@ -13,50 +12,45 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <!-- Bootstrap Min Js -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
   <!-- <link href="styles/styles.css" rel="stylesheet"> -->
   <link rel="stylesheet" href="styles/activities.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
-
 <body>
-
   <div class="container-fluid">
-
     <div class="row">
       <!-- Biking -->
-      <div class="activity-square left-activity-square col-6 text-center p-3">
-        <img class="activity-image mb-4" src="images/Biking.png" alt="">
+      <div class="activity-square left-activity-square col-6 text-center p-3" id="biking">
+        <img class="activity-image mb-4" src="images/activityIcons/biking.png" alt="">
         <p class="h2">Biking</p>
       </div>
       <!-- Weights -->
-      <div class="activity-square right-activity-square col-6 text-center p-3">
-        <img class="activity-image mb-4" src="images/Dumbell.png" alt="">
+      <div class="activity-square right-activity-square col-6 text-center p-3" id="dumbell">
+        <img class="activity-image mb-4" src="images/activityIcons/dumbell.png" alt="">
         <p class="h2">Weight Lifting</p>
       </div>
     </div>
-
     <div class="row">
       <!-- Basketball -->
-      <div class="activity-square left-activity-square activity-square-body col-6 text-center p-3">
-        <img class="activity-image mb-4" src="images/Basketball-Hoop.png" alt="">
+      <div class="activity-square left-activity-square activity-square-body col-6 text-center p-3" id="basketball">
+        <img class="activity-image mb-4" src="images/activityIcons/basketball.png" alt="">
         <p class="h2">Basketball</p>
       </div>
       <!-- Swimming -->
-      <div class="activity-square right-activity-square activity-square-body col-6 text-center p-3">
-        <img class="activity-image mb-4" src="images/Swimming.png" alt="">
-        <p class="h2">Swimming</p>
+      <div class="activity-square right-activity-square activity-square-body col-6 text-center p-3" id="swimming">
+        <img class="activity-image mb-4 mt-5" src="images/activityIcons/swimming.png" alt="">
+        <p class="h2 mt-4">Swimming</p>
       </div>
     </div>
-
     <div class="row">
       <!-- Yoga -->
-      <div class="activity-square left-activity-square activity-square-body col-6 text-center p-3">
-        <img class="activity-image mb-4" src="images/Yoga.png" alt="">
+      <div class="activity-square left-activity-square activity-square-body col-6 text-center p-3" id="yoga">
+        <img class="activity-image mb-4" src="images/activityIcons/yoga.png" alt="">
         <p class="h2">Yoga</p>
       </div>
       <!-- Running -->
-      <div class="activity-square right-activity-square activity-square-body col-6 text-center p-3">
-        <img class="activity-image mb-4" src="images/Running.png" alt="">
+      <div class="activity-square right-activity-square activity-square-body col-6 text-center p-3" id="running">
+        <img class="activity-image mb-4" src="images/activityIcons/running.png" alt="">
         <p class="h2">Running</p>
       </div>
     </div>
@@ -65,8 +59,7 @@
         <p class="h3 mt-5 mb-5" id="moreSoon">More Activites Coming Soon!</p>
       </div>
     </div>
-
   </div>
-
+  <script type="text/javascript" src="js/activities.js"></script>
 </body>
 </html>
