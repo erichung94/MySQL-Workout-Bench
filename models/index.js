@@ -26,10 +26,7 @@ fs.readdirSync(__dirname)
         );
     })
     .forEach(function(file) {
-        console.log("file: ", file, __dirname);  
-        console.log(path.join(__dirname, file));
         var model = sequelize.import(path.join(__dirname, file));
-        console.log("model: ", model);
         db[model.name] = model;
     });
 Object.keys(db).forEach(function(modelName) {
@@ -38,7 +35,18 @@ Object.keys(db).forEach(function(modelName) {
     }
 });
 
+console.log(Object.keys(db));
+
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+
+///// LOGIC FOR MATCHING ////
+db.User.findAll({
+    include: [
+        { model: db.Workout, where: { activity: "cardio", time: "evening" } }
+    ]
+})
+    .then(results => results.map(v => console.log(v.Workouts.map(c => c.dataValues.activity), v.dataValues.id)));
 
 module.exports = db;
