@@ -2,28 +2,30 @@
   <nav class="navbar navbar-expand-lg d-flex justify-content-center mb-1">
     <p class="h1">Activities</p>
   </nav>
-  <div class="row p-2">
-    <div class="col-4">
-      <p class="h4">Select Workout Time</p>
-      <select class="mb-2 form-control form-control-default d-inline">
-        <option>2:00 - 4:00</option>
-      </select>
+  <form class="workout">
+    <div class="row p-2">
+      <div class="col-4">
+        <p class="h4">Select Workout Time</p>
+        <select class="mb-2 form-control form-control-default d-inline">
+          <option id="time">2:00 - 4:00</option>
+        </select>
 
-      <!-- <div class="dropdown mb-1 d-inline">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Select Time
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </div> -->
+        <!-- <div class="dropdown mb-1 d-inline">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Select Time
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </div> -->
+      </div>
+      <div class="col-8 d-flex align-items-end">
+        <button type="submit" class="mb-2 btn btn-large btn-success">Submit <span class="fa-md" aria-hidden="true"></span> </button>
+      </div>
     </div>
-    <div class="col-8 d-flex align-items-end">
-      <button type="button" class="mb-2 btn btn-large btn-success">Submit <span class="fa-md" aria-hidden="true"></span> </button>
-    </div>
-  </div>
+  </form>
   <div class="row">
     <!-- Biking -->
     <div class="activity-square left-activity-square col-6 text-center p-3" id="biking" data-value="Biking">
