@@ -27,8 +27,46 @@ $(document).ready(function() {
     });
 
     // Grabbing value of chosen activity
+    var activity;
+
     $(".activity-square").click(function() {
-        var activity = ($(this).attr("data-value"));
+        activity = ($(this).attr("data-value"));
     });
+    
+    // Grab value from forms (location & time)
+    var workoutForm = $("form.workout");
+    var timeInput = $("option:selected").val();
+    
+    workoutForm.on("submit", function() {
+        event.preventDefault();
+        // alert(timeInput+" "+activity);
+        var workoutData = {
+            activity: activity,
+            time: timeInput,
+        };
+        console.log(workoutData);
+        // write a POST request to some route (e.g. "/api/saveActivity")
+        updateWorkout(workoutData.activity,workoutData.time);
+        
+    });
+
+    // Does a post to the signup route. If successful, we are redirected to the profile page
+    // Otherwise we log any errors
+    function updateWorkout(activity,time) {
+        console.log(activity + time);
+        $.post("/api/activity", {
+            activity: activity,
+            time: time
+        }).then(function(data) {
+            // Then, in the callback, type window.location.replace("/profile")
+            window.location.replace(data.url);
+            // If there's an error, handle it by throwing up a bootstrap alert
+        }).catch(handleInputErr);
+    }
+
+    function handleInputErr(err) {
+        $("#alert .msg").text(err.responseJSON);
+        $("#alert").fadeIn(500);
+    }
     
 });
