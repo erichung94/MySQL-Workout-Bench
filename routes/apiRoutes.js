@@ -10,7 +10,6 @@ module.exports = function(app) {
     // If the user has valid login credentials, send them to the members page.
     // Otherwise the user will be sent an error
     app.post("/api/login", passport.authenticate("local"), function(req, res) {
-        console.log("helloooooo");
         console.log(req.body);
         // The redirect will happen on the front end
         res.json("/profile");
@@ -49,11 +48,10 @@ module.exports = function(app) {
             res.json({});
         }
         else {
-            // Otherwise send back the user's email and id
-            // Sending back a password, even a hashed password, isn't a good idea
+            // Otherwise send back the user's info excluding the password
             res.json({
-                firstName: req.body.firstName,
-                lastName: req.body.lastName,
+                firstName: req.user.firstName,
+                lastName: req.user.lastName,
                 email: req.user.email,
                 id: req.user.id
             });

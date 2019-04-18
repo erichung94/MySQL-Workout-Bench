@@ -4,25 +4,14 @@ $(document).ready(function() {
     var emailInput = $("input#email-input");
     var passwordInput = $("input#password-input");
 
-<<<<<<< HEAD
-  // When the form is submitted, we validate there's an email and password entered
-  loginForm.on("submit", function(event) {
-    console.log("Log in button hit");
-    event.preventDefault();
-    var userData = {
-      email: emailInput.val().trim(),
-      password: passwordInput.val().trim()
-    };
-=======
     // When the form is submitted, we validate there's an email and password entered
     loginForm.on("submit", function(event) {
-        console.log("submitted");
+        console.log("Log in button HIT!");
         event.preventDefault();
         var userData = {
             email: emailInput.val().trim(),
             password: passwordInput.val().trim()
         };
->>>>>>> master
 
         if (!userData.email || !userData.password) {
             return;
