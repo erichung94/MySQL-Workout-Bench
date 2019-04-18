@@ -35,6 +35,22 @@ module.exports = function(app) {
         });
     });
 
+    // Route for grabbing user workout data.
+    app.post("/api/activity", function(req, res) {
+        console.log("Activity Logged!");
+        console.log(req.body);
+        db.Workout.create({
+            activity: req.body.activity,
+            time: req.body.time
+        }).then(function() {
+            res.status(200).json({url:"/profile"});
+        }).catch(function(err) {
+            console.log(err);
+            res.json(err);
+            // res.status(422).json(err.errors[0].message);
+        });
+    });
+
     // Route for logging user out
     app.get("/logout", function(req, res) {
         req.logout();
@@ -54,6 +70,20 @@ module.exports = function(app) {
                 lastName: req.user.lastName,
                 email: req.user.email,
                 id: req.user.id
+            });
+        }
+    });
+
+    // Route for getting some data about our user workout data to be used client side
+    app.get("/api/workout_data", function(req, res) {
+        if (!req.user) {
+            // The user is not logged in, send back an empty object
+            res.json({});
+        }
+        else {
+            // Otherwise send back the user's info excluding the password
+            db.Workout.findAll({}).then(function(dbWorkout) {
+                res.json(dbWorkout);
             });
         }
     });
