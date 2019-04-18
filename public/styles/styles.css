@@ -56,6 +56,18 @@ label {
   background-color: #5C8CE6;
 }
 
+#registerHere, #loginHere {
+  color: white;
+}
+
+#registerHere a, #loginHere a {
+  color: #6598FF;
+}
+
+#registerHere a:hover, #loginHere a:hover {
+  color: #5C8CE6;
+}
+
 @media only screen and (max-width: 768px) {
   body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)), url(../images/shoes2.jpg);;

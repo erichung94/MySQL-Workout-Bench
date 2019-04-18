@@ -1,11 +1,51 @@
-.card {
+/* .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;
   margin: auto;
   text-align: center;
+} */
+
+body {
+  height: 100vh;
 }
 
-.title {
+.navbar {
+  background-color: #33CCFF;
+  color: white;
+}
+
+#profilePicture {
+  max-width: 300px;
+  min-width: 200px;
+  border: 5px solid #33CCFF;
+  box-shadow: 0 0 20px rgba(0, 0,0, .5);
+}
+
+#profileName {
+  color: #454545;
+  font-weight: bold;
+}
+
+.profileInformation {
+  margin-bottom: 0;
+  color: #454545;
+}
+
+.profileInformationContent {
+  margin-bottom: 0;
+  color: #454545;
+}
+
+.profileRow {
+  background-color: #e9ecef;
+}
+
+.container-fluid {
+  padding: 0;
+  overflow: hidden;
+}
+
+/* .title {
   color: grey;
   font-size: 18px;
 }
@@ -31,4 +71,4 @@ a {
 
 button:hover, a:hover {
   opacity: 0.7;
-}
+} */
