@@ -1,19 +1,52 @@
-<nav class="navbar navbar-default">
 <div class="container-fluid">
-  <div class="navbar-header">
-    <a class="navbar-brand" href="/logout">
-      Logout
-    </a>
-  </div>
-</div>
-</nav>
-<div class="container">
+  <nav class="navbar navbar-expand-lg d-flex justify-content-center mb-5">
+    <p class="h1">My Profile</p>
+  </nav>
+
+  <!-- Profile Image -->
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <h2>Profile <span class="member-name"></span></h2>
-      <p>
-        {{ firstName }}
-      </p>
+    <div class="col-12 text-center">
+      <img src="images/dat.jpg" class="img-fluid rounded-circle mb-3" alt="" id="profilePicture">
+      <p class="h2 mb-4" id="profileName"><span class="member-firstname"></span> <span class="member-lastname"></span></p>
+    </div>
+  </div>
+
+  <!-- Form Row -->
+  <div class="row p-3 profileRow">
+    <div class="col-6 d-flex justify-content-start align-items-center">
+        <p class="profileInformation h5">Email</p>
+    </div>
+    <div class="col-6 d-flex justify-content-end">
+      <p class="profileInformationContent"><span class="member-email"></span></p>
+    </div>
+  </div>
+
+  <!-- Form Row -->
+  <div class="row p-3">
+    <div class="col-6 d-flex justify-content-start align-items-center">
+        <p class="profileInformation h5">Local Gym</p>
+    </div>
+    <div class="col-6 d-flex justify-content-end">
+      <p class="profileInformationContent">Golds Gym</p>
+    </div>
+  </div>
+
+  <!-- Form Row -->
+  <div class="row p-3 profileRow">
+    <div class="col-6 d-flex justify-content-start align-items-center">
+        <p class="profileInformation h5">Gender</p>
+    </div>
+    <div class="col-6 d-flex justify-content-end">
+      <p class="profileInformationContent">Male</p>
+    </div>
+  </div>
+
+  <div class="row p-3">
+    <div class="col-6">
+      <a href="/logout"><button type="button" class="btn btn-block btn-large btn-outline-danger">Log Out  <span class="fa fa-sign-out fa-lg" aria-hidden="true"></span> </button></a>
+    </div>
+    <div class="col-6">
+      <a href="/activities"><button type="button" class="btn btn-block btn-large btn-success">Book a Workout  <span class="fa fa-calendar-check-o fa-md" aria-hidden="true"></span> </button></a>
     </div>
   </div>
 </div>

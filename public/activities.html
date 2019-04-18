@@ -14,18 +14,44 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <!-- <link href="styles/styles.css" rel="stylesheet"> -->
   <link rel="stylesheet" href="styles/activities.css">
+  <link rel="stylesheet" href="styles/profile.css">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
   <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg d-flex justify-content-center mb-1">
+      <p class="h1">Activities</p>
+    </nav>
+    <div class="row p-2">
+      <div class="col-4">
+        <p class="h4">Select Workout Time</p>
+        <select class="mb-2 form-control form-control-default d-inline">
+          <option>2:00 - 4:00</option>
+        </select>
+
+        <!-- <div class="dropdown mb-1 d-inline">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Select Time
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </div> -->
+      </div>
+      <div class="col-8 d-flex align-items-end">
+        <button type="button" class="mb-2 btn btn-large btn-success">Submit <span class="fa-md" aria-hidden="true"></span> </button>
+      </div>
+    </div>
     <div class="row">
       <!-- Biking -->
-      <div class="activity-square left-activity-square col-6 text-center p-3" id="biking">
+      <div class="activity-square left-activity-square col-6 text-center top-activity p-3" id="biking">
         <img class="activity-image mb-4" src="images/activityIcons/biking.png" alt="">
         <p class="h2">Biking</p>
       </div>
       <!-- Weights -->
-      <div class="activity-square right-activity-square col-6 text-center p-3" id="dumbell">
+      <div class="activity-square right-activity-square col-6 text-center p-3 top-activity" id="dumbell">
         <img class="activity-image mb-4" src="images/activityIcons/dumbell.png" alt="">
         <p class="h2">Weight Lifting</p>
       </div>

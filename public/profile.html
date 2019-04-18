@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -20,16 +21,69 @@
 
   <link href="styles/profile.css" rel="stylesheet">
 </head>
-<body>
-  
 
-  <div class="card">
+<body>
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg d-flex justify-content-center mb-5">
+      <p class="h1">My Profile</p>
+    </nav>
+
+    <!-- Profile Image -->
+    <div class="row">
+      <div class="col-12 text-center">
+        <img src="images/dat.jpg" class="img-fluid rounded-circle mb-3" alt="" id="profilePicture">
+        <p class="h2 mb-4" id="profileName">Dat Vu</p>
+      </div>
+    </div>
+
+    <!-- Form Row -->
+    <div class="row p-3 profileRow">
+      <div class="col-6 d-flex justify-content-start align-items-center">
+         <p class="profileInformation h5">Email</p>
+      </div>
+      <div class="col-6 d-flex justify-content-end">
+        <p class="profileInformationContent">mct4240@gmail.com</p>
+      </div>
+    </div>
+
+    <!-- Form Row -->
+    <div class="row p-3">
+      <div class="col-6 d-flex justify-content-start align-items-center">
+         <p class="profileInformation h5">Local Gym</p>
+      </div>
+      <div class="col-6 d-flex justify-content-end">
+        <p class="profileInformationContent">Golds Gym</p>
+      </div>
+    </div>
+
+    <!-- Form Row -->
+    <div class="row p-3 profileRow">
+      <div class="col-6 d-flex justify-content-start align-items-center">
+         <p class="profileInformation h5">Gender</p>
+      </div>
+      <div class="col-6 d-flex justify-content-end">
+        <p class="profileInformationContent">Male</p>
+      </div>
+    </div>
+
+    <div class="row p-3">
+      <div class="col-6">
+        <button type="button" class="btn btn-block btn-large btn-outline-danger">Log Out  <span class="fa fa-sign-out fa-lg" aria-hidden="true"></span> </button>
+      </div>
+      <div class="col-6">
+        <button type="button" class="btn btn-block btn-large btn-success">Book a Workout  <span class="fa fa-calendar-check-o fa-md" aria-hidden="true"></span> </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="card">
     <img src="images/dat.jpg"style="width:100%">
     <h1 id="Name">Eric Hung</h1>
     <p>Main Workouts</p>
     <p>Location</p>
     <p>Time of Day</p>
     <p><button>Contact</button></p>
-  </div>
+  </div> -->
 </body>
+
 </html>
