@@ -5,7 +5,7 @@ db.sequelize.sync({force:true}).then(function(){
             { model: db.Workout, where: { activity: "cardio", time: "evening" } }
         ]
     }).then(function(res){
-        console.log(res);
+      console.log(res)
     });
 //     .then(results => results.map(v => console.log(v.Workouts.map(c => c.dataValues.activity), v.dataValues.id)));
 
