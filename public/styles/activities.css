@@ -46,3 +46,7 @@ body {
 #moreSoon {
   color: white;
 }
+
+.top-activity {
+  border-top: 2px solid #dee2e6;
+}
