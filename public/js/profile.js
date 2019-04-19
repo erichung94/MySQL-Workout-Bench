@@ -6,5 +6,6 @@ $(document).ready(function() {
         $(".member-lastname").text(data.lastName);
         $(".member-email").text(data.email);
         $(".member-gender").text(data.gender);
+        $("#profilePicture").attr("src",data.picture);
     });
 });
