@@ -119,23 +119,24 @@ module.exports = function(app) {
 
 
     // LOGIC FOR MATCHING ///
-    //write query to find all workouts the current user has
-    app.get("/api/match", (req, /*res*/) => {
-        console.log(req)
+    //Query to find all workouts the current user has
+    app.get("/api/match", (req, res) => {
         db.UserWorkout.findAll({
             where: {userId: req.user.id}
         }).then(result => result.map(datastuff => console.log("Here are all the workoutIDs from this user: ", datastuff.dataValues.WorkoutId)));
     });
 
-    //then find all users that have the same workoutID
-    app.get("/api/match_logic", (req) => {
-    db.User.findAll({
-        include: [
-            { model: db.Workout }
-        ]
-    }).then(result => console.log(result));
+
+    // This query finds all users that have the same workoutID as the current user
+    app.post("/api/match_logic", (req, res) => {
+        // console.log(req)
+        db.User.findAll({
+            include: [
+                { model: db.Workout, where: {id: req.user.id}}
+            ]
+        }).then(result => result.map(datapet => console.log("Here are all the users with the same workoutIDs as you, ", datapet.dataValues.id)));
     
     });
 
-}
+};
    

@@ -77,7 +77,7 @@ $(document).ready(function() {
     }
 
     function matchingWorkout(activity, time) {
-        $.get("/api/match_logic", {
+        $.post("/api/match_logic", {
             activity: activity,
             time: time
         });
