@@ -68,7 +68,7 @@ $(document).ready(function() {
         $.get("/api/match", {
             activity: activity,
             time: time
-        })
+        });
     }
 
     function handleInputErr(err) {

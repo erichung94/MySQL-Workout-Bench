@@ -1,5 +1,5 @@
-var db = require("../models");
-var path = require("path");
+require("../models");
+require("path");
 
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");

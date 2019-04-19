@@ -62,7 +62,7 @@ module.exports = function(app) {
                     db.UserWorkout.create({
                         WorkoutId: v.dataValues.id,
                         UserId: req.user.id
-                    })
+                    });
                 }).then(function() {
                     res.status(200).json({url:"/profile"});
                 }).catch(function(err) {
@@ -82,7 +82,7 @@ module.exports = function(app) {
                     // res.status(422).json(err.errors[0].message);
                 });
             }
-        })
+        });
     });
 
     // Route for logging user out
@@ -119,15 +119,15 @@ module.exports = function(app) {
     });
 
 
-    app.get('/api/match', (req, res) => {
-        console.log(req)
+    app.get("/api/match", (req, /*res*/) => {
+        console.log(req);
         db.User.findAll({
             include: [
                 { model: db.Workout, where: { activity: req.query.activity, time: req.query.time } }
             ]
         })
-        .then(result => console.log("THIS IS IT", result))
-    })
+            .then(result => console.log("THIS IS IT", result));
+    });
 
     //write query to find all workout the current user has
     //then find all users that have the same workout ID
