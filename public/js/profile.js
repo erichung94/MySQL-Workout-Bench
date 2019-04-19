@@ -5,5 +5,6 @@ $(document).ready(function() {
         $(".member-firstname").text(data.firstName);
         $(".member-lastname").text(data.lastName);
         $(".member-email").text(data.email);
+        $(".member-gender").text(data.gender);
     });
 });
