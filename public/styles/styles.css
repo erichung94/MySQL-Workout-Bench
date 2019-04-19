@@ -1,13 +1,13 @@
 body {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)), url(../images/login-background.jpg);
+  background-image: url(../images/login-background.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 /* Form Styling */
 #form-card {
-  padding: 60px 0;
+  padding: 40px 0;
 }
 
 form {
@@ -19,6 +19,7 @@ form {
 #getRidOfMyDecoration {
   text-decoration: none;
 }
+
 
 label {
   color: white;
