@@ -74,9 +74,14 @@ body {
   border-top: 0;
 }
 
+#matchCard {
+  box-shadow: 0px 0px 30px #e9ecef;
+  border-radius: 15px;
+}
+
 @media only screen and (max-width: 992px) {
   #profilePicture {
     width: 50%;
-    height: 199px;
+    height: 160px;
   }
 }
