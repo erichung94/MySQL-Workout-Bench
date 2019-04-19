@@ -9,13 +9,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- Bootstrap jQuery -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
   <!-- Bootstrap Popper -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
   <!-- Bootstrap Min Js -->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -36,26 +43,28 @@
         <p class="h2 mb-4" id="profileName">Dat Vu</p>
       </div>
     </div>
+  </div>
 
-    <!-- Form Row -->
-    <div class="row p-3 profileRow">
-      <div class="col-6 d-flex justify-content-start align-items-center">
-         <p class="profileInformation h5">Email</p>
-      </div>
-      <div class="col-6 d-flex justify-content-end">
-        <p class="profileInformationContent">mct4240@gmail.com</p>
-      </div>
+  <!-- Form Row -->
+  <div class="row p-3 profileRow">
+    <div class="col-6 d-flex justify-content-start align-items-center">
+      <p class="profileInformation h5">Email</p>
     </div>
+    <div class="col-6 d-flex justify-content-end">
+      <p class="profileInformationContent">mct4240@gmail.com</p>
+    </div>
+  </div>
 
-    <!-- Form Row -->
-    <div class="row p-3">
-      <div class="col-6 d-flex justify-content-start align-items-center">
-         <p class="profileInformation h5">Local Gym</p>
-      </div>
-      <div class="col-6 d-flex justify-content-end">
-        <p class="profileInformationContent">Golds Gym</p>
-      </div>
+  <!-- Form Row -->
+  <div class="row p-3">
+    <div class="col-6 d-flex justify-content-start align-items-center">
+      <p class="profileInformation h5">Local Gym</p>
     </div>
+    <div class="col-6 d-flex justify-content-end">
+      <p class="profileInformationContent">Golds Gym</p>
+    </div>
+  </div>
+
 
     <!-- Form Row -->
     <div class="row p-3 profileRow mb-2">
@@ -66,6 +75,45 @@
         <p class="profileInformationContent">Male</p>
       </div>
     </div>
+    <div class="col-6 d-flex justify-content-end">
+      <p class="profileInformationContent">Male</p>
+    </div>
+  </div>
+
+
+
+  <!-- buttons -->
+  <div class="row p-3">
+    <div class="col-6">
+      <button type="button" class="btn btn-block btn-large btn-outline-danger">Log Out <span
+          class="fa fa-sign-out fa-lg" aria-hidden="true"></span> </button>
+    </div>
+    <div class="col-6">
+      <button type="button" class="btn btn-block btn-large btn-success">Book a Workout <span
+          class="fa fa-calendar-check-o fa-md" aria-hidden="true"></span> </button>
+    </div>
+  </div>
+  <!-- modal -->
+  <div class="row pl-3 pr-3 mb-3">
+    <div class="col-12">
+      <button type="modalButton" class="btn btn-block btn-large" id="matches" data-toggle="modal"
+        data-target=".bd-example-modal-lg">Matches   <span class="fa fa-user fa-lg" aria-hidden="true"></span></button>
+    </div>
+  </div>
+  </div>
+  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+
+        
+        <!-- PROFILE MATCHES -->
+        <p>ADD MATCH PROFILES HERE </p>
+        <p>ADD MATCH PROFILES HERE </p>
+        <p>ADD MATCH PROFILES HERE </p>
+        <p>ADD MATCH PROFILES HERE </p>
+        <p>ADD MATCH PROFILES HERE </p>
+        <p>ADD MATCH PROFILES HERE </p>
 
     <!-- Your Matches -->
     <div class="row">
@@ -83,15 +131,12 @@
       </div>
     </div>
   </div>
+  </div>
+  </div>
 
-  <!-- <div class="card">
-    <img src="images/dat.jpg"style="width:100%">
-    <h1 id="Name">Eric Hung</h1>
-    <p>Main Workouts</p>
-    <p>Location</p>
-    <p>Time of Day</p>
-    <p><button>Contact</button></p>
-  </div> -->
+
+
+
 </body>
 
 </html>
