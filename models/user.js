@@ -16,6 +16,12 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
+        gender: { 
+            type: DataTypes.STRING,
+        },
+        picture: { 
+            type: DataTypes.TEXT,
+        },
         // The email cannot be null, and must be a proper email before creation
         email: {
             type: DataTypes.STRING,
