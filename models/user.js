@@ -18,17 +18,9 @@ module.exports = function(sequelize, DataTypes) {
         },
         gender: { 
             type: DataTypes.STRING,
-            allowNull: false
         },
         picture: { 
             type: DataTypes.TEXT,
-            default: function (gender) {
-                if (gender === "Male") {
-                    return "/images/maleDefault.jpg";
-                } else if (gender === "Female") {
-                    return "/images/femaleDefault.jpg";
-                }
-            }
         },
         // The email cannot be null, and must be a proper email before creation
         email: {

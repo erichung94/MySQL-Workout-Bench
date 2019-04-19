@@ -21,11 +21,22 @@ module.exports = function(app) {
     app.post("/api/signup", function(req, res) {
         console.log("YOU ARE HEREEEEEE");
         console.log(req.body);
+        function findGender(gender) {
+            var picURL;
+            if (gender === "Male") {
+                picURL = "/images/maleDefault.jpg";
+                return picURL;
+            } else if (gender === "Female") {
+                picURL = "/images/femaleDefault.jpg";
+                return picURL;
+            }
+        }
         db.User.create({
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             gender: req.body.gender,
             email: req.body.email,
+            picture: findGender(req.body.gender),
             password: req.body.password
         }).then(function() {
             res.redirect(307, "/api/login");
@@ -65,13 +76,8 @@ module.exports = function(app) {
             res.json({});
         }
         else {
-            // Otherwise send back the user's info excluding the password
-            res.json({
-                firstName: req.user.firstName,
-                lastName: req.user.lastName,
-                gender: req.user.gender,
-                email: req.user.email,
-                id: req.user.id
+            db.User.findOne({where : {id: req.user.id}}).then(function(dbResult){
+                res.json(dbResult);
             });
         }
     });

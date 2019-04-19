@@ -1,17 +1,17 @@
 $(document).ready(function() {
     // Getting references to our form and input
     var signUpForm = $("form.signup");
-    var firstNameInput = $("input#inputFirstName");
-    var lastNameInput = $("input#inputLastName");
-    var genderInput = $("#inputGender option:selected").val();
-    var emailInput = $("input#email-input");
-    var passwordInput = $("input#password-input");
 
     // When the signup button is clicked, we validate the email and password are not blank
     // Create new profile page, does not redirect to current user page
     signUpForm.on("submit", function(event) {
+        var firstNameInput = $("input#inputFirstName");
+        var lastNameInput = $("input#inputLastName");
+        var genderInput = $("#inputGender").val();
+        var emailInput = $("input#email-input");
+        var passwordInput = $("input#password-input");
+
         console.log("submitted");
-        alert(genderInput);
         event.preventDefault();
         var userData = {
             firstName: firstNameInput.val().trim(),
