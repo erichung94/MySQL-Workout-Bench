@@ -39,5 +39,8 @@ Object.keys(db).forEach(function(modelName) {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fixed userId and workoutId problem
 module.exports = db;

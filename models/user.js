@@ -55,7 +55,7 @@ module.exports = function(sequelize, DataTypes) {
     // Associating Users with Workouts
     User.associate = function(models){
         models.User.belongsToMany(models.Workout, {
-            through: models.UserWorkout 
+            through: models.UserWorkout
         });
     };
 

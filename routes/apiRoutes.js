@@ -10,8 +10,6 @@ module.exports = function(app) {
     // If the user has valid login credentials, send them to the members page.
     // Otherwise the user will be sent an error
     app.post("/api/login", passport.authenticate("local"), function(req, res) {
-        console.log("helloooooo");
-        console.log(req.body);
         // The redirect will happen on the front end
         res.json("/profile");
     });
@@ -48,20 +46,43 @@ module.exports = function(app) {
         });
     });
 
+
+
     // Route for grabbing user workout data.
     app.post("/api/activity", function(req, res) {
         console.log("Activity Logged!");
-        console.log(req.body);
-        db.Workout.create({
-            activity: req.body.activity,
-            time: req.body.time
-        }).then(function() {
-            res.status(200).json({url:"/profile"});
-        }).catch(function(err) {
-            console.log(err);
-            res.json(err);
-            // res.status(422).json(err.errors[0].message);
-        });
+        db.Workout.findOne({
+            where: {activity: req.body.activity, time: req.body.time}
+        }).then(function(c){
+            if(c === null){
+                db.Workout.create({
+                    activity: req.body.activity,
+                    time: req.body.time
+                }).then(function(v){ 
+                    db.UserWorkout.create({
+                        WorkoutId: v.dataValues.id,
+                        UserId: req.user.id
+                    })
+                }).then(function() {
+                    res.status(200).json({url:"/profile"});
+                }).catch(function(err) {
+                    console.log(err);
+                    res.json(err);
+                    // res.status(422).json(err.errors[0].message);
+                });
+            } else {
+                db.UserWorkout.create({
+                    WorkoutId: c.id,
+                    UserId: req.user.id
+                }).then(function() {
+                    res.status(200).json({url:"/profile"});
+                }).catch(function(err) {
+                    console.log(err);
+                    res.json(err);
+                    // res.status(422).json(err.errors[0].message);
+                });
+            }
+        })
     });
 
     // Route for logging user out
@@ -96,4 +117,26 @@ module.exports = function(app) {
             });
         }
     });
+
+
+    app.get('/api/match', (req, res) => {
+        console.log("THIS IS IT", req)
+        db.User.findAll({
+            include: [
+                { model: db.Workout, where: { activity: req.body.workoutId, time: req.body.time } }
+            ]
+        })
+        .then(result => console.log("THIS IS IT", result))
+    })
+
+
+
+
+    
+
+
+
 };
+
+
+   
