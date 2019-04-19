@@ -4,5 +4,9 @@ This is Mary's Domain. Do not touch.
 
 Technologies
 
-- React.js
+- Bootstrap
 - User Authentication
+  * Passport
+  * Bcrypt
+
+[Deploy Link](https://sqlworkoutbench.herokuapp.com/)
