@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Create An Account</title>
   <meta charset="UTF-8">
@@ -17,13 +18,14 @@
   <link rel="stylesheet" href="styles/profile.css">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
+
 <body>
   <div class="container-fluid">
     <nav class="navbar navbar-expand-lg d-flex justify-content-center mb-1">
       <p class="h1">Activities</p>
     </nav>
     <div class="row p-2">
-      <div class="col-4">
+      <div class="col-6">
         <p class="h4">Select Workout Time</p>
         <select class="mb-2 form-control form-control-default d-inline">
           <option>2:00 - 4:00</option>
@@ -40,11 +42,15 @@
           </div>
         </div> -->
       </div>
+    </div>
+    <div class="row pl-2">
       <div class="col-8 d-flex align-items-end">
-        <button type="button" class="mb-2 btn btn-large btn-success">Submit <span class="fa-md" aria-hidden="true"></span> </button>
-        <a href="profile.html"> <button type="button" class="ml-2 mb-2 btn btn btn-large btn-danger">Return to Profile Page <span class="fa-md" aria-hidden="true"></span> </button> </a>
+        <button type="button" class="mb-2 btn btn-large btn-success" data-toggle="modal" data-target="matchesModal">Submit <span class="fa-md" aria-hidden="true"></span> </button>
+        <a href="profile.html"> <button type="button" class="ml-2 mb-2 btn btn btn-large btn-danger">Previous Page <span class="fa-md" aria-hidden="true"></span> </button> </a>
       </div>
     </div>
+
+
     <div class="row">
       <!-- Biking -->
       <div class="activity-square left-activity-square col-6 text-center top-activity p-3" id="biking">
@@ -82,6 +88,8 @@
       </div>
     </div>
   </div>
+  <!-- Javascript for the Grid -->
   <script type="text/javascript" src="js/activities.js"></script>
 </body>
+
 </html>
