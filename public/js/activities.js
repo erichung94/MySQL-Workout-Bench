@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    whatabadabingbong("Biking", "2:00 - 4:00");
+
     // CSS Portion
     var prevId;
  
@@ -26,6 +26,10 @@ $(document).ready(function() {
         prevId = $(this).attr("id");
     });
  
+    
+    matchingData();
+    matchingWorkout();
+
     // Grabbing value of chosen activity
     var activity;
  
@@ -64,8 +68,16 @@ $(document).ready(function() {
         }).catch(handleInputErr);
     }
  
-    function whatabadabingbong(activity, time) {
+    //routes for data matching functions
+    function matchingData(activity, time) {
         $.get("/api/match", {
+            activity: activity,
+            time: time
+        });
+    }
+
+    function matchingWorkout(activity, time) {
+        $.get("/api/match_logic", {
             activity: activity,
             time: time
         });

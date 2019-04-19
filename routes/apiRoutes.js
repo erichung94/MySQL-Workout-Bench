@@ -54,6 +54,7 @@ module.exports = function(app) {
         db.Workout.findOne({
             where: {activity: req.body.activity, time: req.body.time}
         }).then(function(c){
+            // allows users to pick the same activity and populate UserWorkout model
             if(c === null){
                 db.Workout.create({
                     activity: req.body.activity,
@@ -68,7 +69,6 @@ module.exports = function(app) {
                 }).catch(function(err) {
                     console.log(err);
                     res.json({url:"/profile"});
-                    // res.status(422).json(err.errors[0].message);
                 });
             } else {
                 db.UserWorkout.create({
@@ -79,7 +79,6 @@ module.exports = function(app) {
                 }).catch(function(err) {
                     console.log(err);
                     res.json({url:"/profile"});
-                    // res.status(422).json(err.errors[0].message);
                 });
             }
         });
@@ -119,27 +118,24 @@ module.exports = function(app) {
     });
 
 
+    // LOGIC FOR MATCHING ///
+    //write query to find all workouts the current user has
     app.get("/api/match", (req, /*res*/) => {
-        console.log(req);
-        db.User.findAll({
-            include: [
-                { model: db.Workout, where: { activity: req.query.activity, time: req.query.time } }
-            ]
-        })
-            .then(result => console.log("THIS IS IT", result));
+        console.log(req)
+        db.UserWorkout.findAll({
+            where: {userId: req.user.id}
+        }).then(result => result.map(datastuff => console.log("Here are all the workoutIDs from this user: ", datastuff.dataValues.WorkoutId)));
     });
 
-    //write query to find all workout the current user has
-    //then find all users that have the same workout ID
-
-
-
-
+    //then find all users that have the same workoutID
+    app.get("/api/match_logic", (req) => {
+    db.User.findAll({
+        include: [
+            { model: db.Workout }
+        ]
+    }).then(result => console.log(result));
     
+    });
 
-
-
-};
-
-
+}
    
