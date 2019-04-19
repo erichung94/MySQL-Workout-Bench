@@ -50,3 +50,33 @@ body {
 .top-activity {
   border-top: 2px solid #dee2e6;
 }
+
+
+/* Modal Styling */
+.modal-header .close {
+  padding: 1rem 1rem;
+  margin: -1rem 0rem -1rem;
+}
+
+.modal-header {
+  border-bottom: 0;
+}
+
+.modal-title {
+  margin: 0 auto;
+}
+
+#profilePicture {
+  width: 300px;
+}
+
+.modal-footer {
+  border-top: 0;
+}
+
+@media only screen and (max-width: 992px) {
+  #profilePicture {
+    width: 50%;
+    height: 199px;
+  }
+}
