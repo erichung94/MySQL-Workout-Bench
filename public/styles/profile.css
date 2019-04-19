@@ -15,16 +15,33 @@ body {
 }
 
 #profilePicture {
-  max-width: 300px;
-  min-width: 200px;
+  width: 300px;
+  height: 300px;
   border: 5px solid #33CCFF;
   box-shadow: 0 0 20px rgba(0, 0,0, .5);
+  object-fit: fill;
+  border-radius: 50%;
 }
 
 #profileName {
   color: #454545;
   font-weight: bold;
+}
 
+#pictureChange {
+  position: absolute;
+  margin-top: 245px;
+  height: 60px;
+  width: 60px;
+  /* margin-right: 40px; */
+  margin-left: -100px;
+  border-radius: 50%;
+  background-color: #33CCFF;
+  color: white;
+}
+
+#pictureChange:hover {
+  background-color: #00b8f5;
 }
 
 .profileInformation {
