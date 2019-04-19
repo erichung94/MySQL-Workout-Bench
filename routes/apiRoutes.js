@@ -67,7 +67,7 @@ module.exports = function(app) {
                     res.status(200).json({url:"/profile"});
                 }).catch(function(err) {
                     console.log(err);
-                    res.json(err);
+                    res.json({url:"/profile"});
                     // res.status(422).json(err.errors[0].message);
                 });
             } else {
@@ -78,7 +78,7 @@ module.exports = function(app) {
                     res.status(200).json({url:"/profile"});
                 }).catch(function(err) {
                     console.log(err);
-                    res.json(err);
+                    res.json({url:"/profile"});
                     // res.status(422).json(err.errors[0].message);
                 });
             }
@@ -120,14 +120,17 @@ module.exports = function(app) {
 
 
     app.get('/api/match', (req, res) => {
-        console.log("THIS IS IT", req)
+        console.log(req)
         db.User.findAll({
             include: [
-                { model: db.Workout, where: { activity: req.body.workoutId, time: req.body.time } }
+                { model: db.Workout, where: { activity: req.query.activity, time: req.query.time } }
             ]
         })
         .then(result => console.log("THIS IS IT", result))
     })
+
+    //write query to find all workout the current user has
+    //then find all users that have the same workout ID
 
 
 
