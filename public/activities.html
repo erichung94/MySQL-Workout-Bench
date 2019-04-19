@@ -1,29 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Create An Account</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- Bootstrap jQuery -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
   <!-- Bootstrap Popper -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
   <!-- Bootstrap Min Js -->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <!-- <link href="styles/styles.css" rel="stylesheet"> -->
-  <link rel="stylesheet" href="styles/activities.css">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="styles/profile.css">
+  <link rel="stylesheet" href="styles/activities.css">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
+
 <body>
   <div class="container-fluid">
     <nav class="navbar navbar-expand-lg d-flex justify-content-center mb-1">
       <p class="h1">Activities</p>
     </nav>
     <div class="row p-2">
-      <div class="col-4">
+      <div class="col-6">
         <p class="h4">Select Workout Time</p>
         <select class="mb-2 form-control form-control-default d-inline">
           <option>2:00 - 4:00</option>
@@ -40,11 +48,148 @@
           </div>
         </div> -->
       </div>
+    </div>
+    <div class="row pl-2">
       <div class="col-8 d-flex align-items-end">
-        <button type="button" class="mb-2 btn btn-large btn-success">Submit <span class="fa-md" aria-hidden="true"></span> </button>
-        <a href="profile.html"> <button type="button" class="ml-2 mb-2 btn btn btn-large btn-danger">Return to Profile Page <span class="fa-md" aria-hidden="true"></span> </button> </a>
+        <button type="button" class="mb-2 btn btn-large btn-success" data-toggle="modal" data-target="#matchesModal">Submit <span class="fa-md" aria-hidden="true"></span> </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="matchesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">Your Matches</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <!-- Modal Body Content -->
+              <div class="modal-body">
+                <div class="container-fluid">
+                  <!-- Match -->
+                  <div class="row p-3">
+                    <div class="col-1"></div>
+                    <div class="col-10 m-2" id="matchCard">
+                      <div class="row p-2">
+                        <div class="col-12 mt-3 text-center">
+                          <img src="images/DatVu.jpg" class="img-fluid rounded-circle mb-3" alt="" id="profilePicture">
+                          <p class="h4 mb-1" id="profileName">Dat Vu</p>
+                        </div>
+                      </div>
+                      <!-- Email Row -->
+                      <div class="row p-1 profileRow">
+                        <div class="col-6 d-flex justify-content-start align-items-center">
+                          <p class="profileInformation h5">Email</p>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end">
+                          <p class="profileInformationContent">mct4240@gmail.com</p>
+                        </div>
+                      </div>
+                      <!-- Gender Row -->
+                      <div class="row p-1">
+                        <div class="col-6 d-flex justify-content-start align-items-center">
+                          <p class="profileInformation h5">Gender</p>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end">
+                          <p class="profileInformationContent">Male</p>
+                        </div>
+                      </div>
+                      <!-- Time Row -->
+                      <div class="row p-1 profileRow">
+                        <div class="col-6 d-flex justify-content-start align-items-center">
+                          <p class="profileInformation h5">Activity</p>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end">
+                          <p class="profileInformationContent">Cycling</p>
+                        </div>
+                      </div>
+
+                      <!-- Time Row -->
+                      <div class="row p-1">
+                        <div class="col-6 d-flex justify-content-start align-items-center">
+                          <p class="profileInformation h5">Time</p>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end">
+                          <p class="profileInformationContent">2:00pm - 4:00pm</p>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <button type="button" class="btn btn-block btn-large btn-success">Pick as Partner</button>
+                      </div>
+                    </div>
+                    <div class="col-1"></div>
+                  </div>
+
+                  <!-- END OF CARD!!!!!!!!!!! -->
+
+                  <!-- Match Card -->
+                  <div class="row p-3">
+                    <div class="col-1"></div>
+                    <div class="col-10 m-2" id="matchCard">
+                      <div class="row p-2">
+                        <div class="col-12 mt-3 text-center">
+                          <img src="images/DatVu.jpg" class="img-fluid rounded-circle mb-3" alt="" id="profilePicture">
+                          <p class="h4 mb-1" id="profileName">Dat Vu</p>
+                        </div>
+                      </div>
+                      <!-- Email Row -->
+                      <div class="row p-1 profileRow">
+                        <div class="col-6 d-flex justify-content-start align-items-center">
+                          <p class="profileInformation h5">Email</p>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end">
+                          <p class="profileInformationContent">mct4240@gmail.com</p>
+                        </div>
+                      </div>
+                      <!-- Gender Row -->
+                      <div class="row p-1">
+                        <div class="col-6 d-flex justify-content-start align-items-center">
+                          <p class="profileInformation h5">Gender</p>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end">
+                          <p class="profileInformationContent">Male</p>
+                        </div>
+                      </div>
+                      <!-- Time Row -->
+                      <div class="row p-1 profileRow">
+                        <div class="col-6 d-flex justify-content-start align-items-center">
+                          <p class="profileInformation h5">Activity</p>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end">
+                          <p class="profileInformationContent">Cycling</p>
+                        </div>
+                      </div>
+
+                      <!-- Time Row -->
+                      <div class="row p-1">
+                        <div class="col-6 d-flex justify-content-start align-items-center">
+                          <p class="profileInformation h5">Time</p>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end">
+                          <p class="profileInformationContent">2:00pm - 4:00pm</p>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <button type="button" class="btn btn-block btn-large btn-success">Pick as Partner</button>
+                      </div>
+                    </div>
+                    <div class="col-1"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <a href="profile.html"> <button type="button" class="ml-2 mb-2 btn btn btn-large btn-danger">Previous Page <span class="fa-md" aria-hidden="true"></span> </button> </a>
       </div>
     </div>
+
+
     <div class="row">
       <!-- Biking -->
       <div class="activity-square left-activity-square col-6 text-center top-activity p-3" id="biking">
@@ -82,6 +227,8 @@
       </div>
     </div>
   </div>
+  <!-- Javascript for the Grid -->
   <script type="text/javascript" src="js/activities.js"></script>
 </body>
+
 </html>

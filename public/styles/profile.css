@@ -44,6 +44,7 @@ body {
   background-color: #00b8f5;
 }
 
+
 .profileInformation {
   margin-bottom: 0;
   color: #454545;
@@ -65,6 +66,14 @@ body {
 
 a:link,a:visited,a:hover,a:active {
   text-decoration: none;
+}
+
+#matches {
+  background-color: #33CCFF;
+  color: white;
+}
+#matches:hover {
+  background-color: #00b8f5;
 }
 
 /* .title {
