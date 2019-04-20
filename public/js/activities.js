@@ -28,7 +28,7 @@ $(document).ready(function() {
  
     
     matchingData();
-    matchingWorkout();
+
 
     // Grabbing value of chosen activity
     var activity;
@@ -68,7 +68,7 @@ $(document).ready(function() {
         }).catch(handleInputErr);
     }
  
-    //routes for data matching functions
+    // routes for data matching functions
     function matchingData(activity, time) {
         $.get("/api/match", {
             activity: activity,
@@ -76,12 +76,6 @@ $(document).ready(function() {
         });
     }
 
-    function matchingWorkout(activity, time) {
-        $.post("/api/match_logic", {
-            activity: activity,
-            time: time
-        });
-    }
 
     function handleInputErr(err) {
         $("#alert .msg").text(err.responseJSON);

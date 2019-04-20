@@ -1,5 +1,6 @@
 var db = require("../models");
 var passport = require("../config/passport");
+var Op = require("sequelize").Op;
 
 module.exports = function(app) {
     // *****************************************************************************
@@ -120,23 +121,21 @@ module.exports = function(app) {
 
     // LOGIC FOR MATCHING ///
     //Query to find all workouts the current user has
-    app.get("/api/match", (req, res) => {
+    app.get("/api/match", (req, /*res*/) => {
         db.UserWorkout.findAll({
             where: {userId: req.user.id}
-        }).then(result => result.map(datastuff => console.log("Here are all the workoutIDs from this user: ", datastuff.dataValues.WorkoutId)));
+        }).then(function(b) {
+            console.log("IS THIS THE RIGHT WORKOUT? ", b.map(x => x.dataValues.WorkoutId));
+            db.User.findAll({  
+                include: [
+                    { model: db.Workout, where: {
+                        [Op.or]: b.map(v => {
+                            var obj = {id: v.dataValues.WorkoutId};
+                            return obj;
+                        })
+                    }}, 
+                ]
+            }).then(result => console.log(result));
+        });
     });
-
-
-    // This query finds all users that have the same workoutID as the current user
-    app.post("/api/match_logic", (req, res) => {
-        // console.log(req)
-        db.User.findAll({
-            include: [
-                { model: db.Workout, where: {id: req.user.id}}
-            ]
-        }).then(result => result.map(datapet => console.log("Here are all the users with the same workoutIDs as you, ", datapet.dataValues.id)));
-    
-    });
-
 };
-   
