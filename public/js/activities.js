@@ -27,7 +27,7 @@ $(document).ready(function() {
     });
  
     
-    matchingData();
+    // matchingData();
 
 
     // Grabbing value of chosen activity
@@ -69,12 +69,12 @@ $(document).ready(function() {
     }
  
     // routes for data matching functions
-    function matchingData(activity, time) {
-        $.get("/api/match", {
-            activity: activity,
-            time: time
-        });
-    }
+    // function matchingData(activity, time) {
+    //     $.get("/api/match", {
+    //         activity: activity,
+    //         time: time
+    //     });
+    // }
 
 
     function handleInputErr(err) {
