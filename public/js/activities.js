@@ -1,8 +1,9 @@
 $(document).ready(function() {
-
     // CSS Portion
     var prevId;
- 
+
+    // console.log(match());
+
     $(".activity-square").on("click", function() {
         $(this).css({
             "background-color": "#33CCFF",
@@ -13,7 +14,7 @@ $(document).ready(function() {
         $(this).find("p").css({
             "color" : "white",
         });
- 
+
         if (prevId) {
             $("#" + prevId).css({
                 "background-color" : "white"
@@ -23,20 +24,17 @@ $(document).ready(function() {
                 "color" : "#242B33"
             });
         }
+
         prevId = $(this).attr("id");
     });
- 
-    
-    // matchingData();
-
 
     // Grabbing value of chosen activity
     var activity;
- 
+
     $(".activity-square").click(function() {
         activity = ($(this).attr("data-value"));
     });
- 
+    
     // Grab value from forms (location & time)
     var workoutForm = $("form.workout");
     var timeInput = $("option:selected").val();
@@ -51,9 +49,11 @@ $(document).ready(function() {
         console.log(workoutData);
         // write a POST request to some route (e.g. "/api/saveActivity")
         updateWorkout(workoutData.activity,workoutData.time);
- 
+        
     });
- 
+
+
+
     // Does a post to the signup route. If successful, we are redirected to the profile page
     // Otherwise we log any errors
     function updateWorkout(activity,time) {
@@ -67,14 +67,13 @@ $(document).ready(function() {
             // If there's an error, handle it by throwing up a bootstrap alert
         }).catch(handleInputErr);
     }
- 
-    // routes for data matching functions
-    // function matchingData(activity, time) {
-    //     $.get("/api/match", {
-    //         activity: activity,
-    //         time: time
-    //     });
+
+    //this function is for testing
+    // function match() {
+    //     $.get("/api/match").then(function(data) { console.log("BIG JUICY DATA: ", data); });
     // }
+
+   
 
 
     function handleInputErr(err) {
@@ -83,3 +82,5 @@ $(document).ready(function() {
     }
     
 });
+
+

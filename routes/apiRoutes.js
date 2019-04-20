@@ -3,6 +3,7 @@ var passport = require("../config/passport");
 var Op = require("sequelize").Op;
 
 module.exports = function(app) {
+
     // *****************************************************************************
     // USER AUTHENTICATION SECTION
     //
@@ -121,21 +122,37 @@ module.exports = function(app) {
 
     // LOGIC FOR MATCHING ///
     //Query to find all workouts the current user has
-    app.get("/api/match", (req, /*res*/) => {
+    app.get("/api/match", (req, res) => {
         db.UserWorkout.findAll({
             where: {userId: req.user.id}
-        }).then(function(b) {
-            console.log("IS THIS THE RIGHT WORKOUT? ", b.map(x => x.dataValues.WorkoutId));
+        }).then(function(findUser) {
+            console.log("This is the workout for this current user ", findUser.map(userData => userData.dataValues.WorkoutId));
             db.User.findAll({  
                 include: [
                     { model: db.Workout, where: {
-                        [Op.or]: b.map(v => {
-                            var obj = {id: v.dataValues.WorkoutId};
+                        [Op.or]: findUser.map(workoutData => {
+                            var obj = {id: workoutData.dataValues.WorkoutId};
                             return obj;
                         })
                     }}, 
                 ]
-            }).then(result => console.log(result));
+            }).then(results => {
+                var mappedResults = results.map(matchData => {
+                    var matchedUser = matchData.dataValues;
+                    var resultsObj = {
+                        picture: matchedUser.picture,
+                        firstName: matchedUser.firstName,
+                        gender: matchedUser.gender,
+                        workouts: matchedUser.Workouts.map(matchedActivity => ({ 
+                            activity: matchedActivity.activity,
+                            time: matchedActivity.time,
+                        }))
+                    };
+                    return resultsObj;
+                });
+                console.log(mappedResults)
+                res.json(mappedResults);
+            });
         });
     });
 };
