@@ -55,7 +55,9 @@ module.exports = function(app) {
             activity: req.body.activity,
             time: req.body.time
         }).then(function() {
-            res.status(200).json({url:"/profile"});
+            // res.status(200).json({url:"/profile"});
+            res.status(200);
+            /// LYNN THIS IS WHERE MATCHING LOGIC FUNCTION NEEDS TO RUN
         }).catch(function(err) {
             console.log(err);
             res.json(err);
