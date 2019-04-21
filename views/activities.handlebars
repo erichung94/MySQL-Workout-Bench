@@ -6,8 +6,12 @@
     <div class="row p-2">
       <div class="col-6">
         <p class="h4">Select Workout Time</p>
-        <select class="mb-2 form-control form-control-default d-inline">
-          <option id="time">2:00 - 4:00</option>
+        <select id="workoutTime" class="mb-2 form-control form-control-default d-inline">
+          <option data-value="Early Bird ~Between 4 - 7am">Early Bird ~Between 4 - 7am</option>
+          <option data-value="Morning ~Between 8 - 11am">Morning ~Between 8 - 11am</option>
+          <option data-value="Afternoon ~Between 12 - 4pm">Afternoon ~Between 12 - 4pm</option>
+          <option data-value="Evening ~Between 5 - 8pm">Evening ~Between 5 - 8pm</option>
+          <option data-value="Night Owl ~Between 9 - 2am">Night Owl ~Between 9 - 2am</option>
         </select>
       <div class="col-6">
         <input type="search" class="form-control mb-4" placeholder="Gym Name" id="inputLocation" autocomplete="on" runat="server" >
@@ -31,7 +35,7 @@
     </div>
     <div class="row pl-2">
       <div class="col-8 d-flex align-items-end">
-        <button type="button" class="mb-2 btn btn-large btn-success" data-toggle="modal"
+        <button type="submit" id="activitiesSubmitButton" class="mb-2 btn btn-large btn-success" data-toggle="modal"
           data-target="#matchesModal">Submit <span class="fa-md" aria-hidden="true"></span> </button>
         <a href="/profile"> <button type="button" class="ml-2 mb-2 btn btn btn-large btn-danger">Previous Page
           <span class="fa-md" aria-hidden="true"></span> </button> </a>
