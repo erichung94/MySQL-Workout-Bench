@@ -3,11 +3,33 @@
     <p class="h1">My Profile</p>
   </nav>
 
+  {{!-- Modal for profile pic change --}}
+  <div id="picModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Upload Photo</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Place URL of desired photo here:</p>
+          <input type="text" id="photo" class="form-control" required>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="savePic" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Profile Image -->
   <div class="row">
     <div class="col-12 text-center">
       <img src="" class="img-fluid rounded-circle mb-3" alt="" id="profilePicture">
-      <button type="button" class="btn fa fa-camera fa-lg" id="pictureChange"></button>
+      <button type="button" class="btn fa fa-camera fa-lg" id="pictureChange" data-toggle="modal" data-target="#myModal"></button>
       <p class="h2 mb-4" id="profileName"><span class="member-firstname"></span> <span class="member-lastname"></span></p>
     </div>
   </div>

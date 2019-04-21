@@ -86,6 +86,19 @@ module.exports = function(app) {
         });
     });
 
+    app.patch("/api/signup", function(req,res,next) {
+        console.log("hit");
+        console.log(req.body.picture);
+        console.log(req.user.id);
+
+        db.User.update(
+            { picture: req.body.picture }, 
+            { where: { id: req.user.id }
+            }).then(function(posted) {
+            res.json(posted);
+        }).catch(next);
+    });
+
     // Route for logging user out
     app.get("/logout", function(req, res) {
         req.logout();

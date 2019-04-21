@@ -4,7 +4,7 @@
   </nav>
   <form class="workout">
     <div class="row p-2">
-      <div class="col-4">
+      <div class="col-6">
         <p class="h4">Select Workout Time</p>
         <select class="mb-2 form-control form-control-default d-inline">
           <option id="time">2:00 - 4:00</option>
@@ -20,14 +20,155 @@
             <a class="dropdown-item" href="#">Something else here</a>
           </div>
         </div> -->
+
       </div>
+    </div>
+    <div class="row pl-2">
       <div class="col-8 d-flex align-items-end">
-        <button type="submit" class="mb-2 btn btn-large btn-success">Submit <span class="fa-md" aria-hidden="true"></span> </button>
-        <a href="/profile"> <button type="button" class="ml-2 mb-2 btn btn btn-large btn-danger">Return to Profile Page <span class="fa-md" aria-hidden="true"></span> </button> </a>
+        <button type="button" class="mb-2 btn btn-large btn-success" data-toggle="modal"
+          data-target="#matchesModal">Submit <span class="fa-md" aria-hidden="true"></span> </button>
+        <a href="/profile"> <button type="button" class="ml-2 mb-2 btn btn btn-large btn-danger">Previous Page
+          <span class="fa-md" aria-hidden="true"></span> </button> </a>
+
+        <!-- Modal -->
+        <div class="modal fade" id="matchesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">Your Matches</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <!-- Modal Body Content -->
+              <div class="modal-body">
+                <div class="container-fluid">
+                  <!-- Match -->
+                  <div class="row p-3">
+                    <div class="col-1"></div>
+                    <div class="col-10 m-2" id="matchCard">
+                      <div class="row p-2">
+                        <div class="col-12 mt-3 text-center">
+                          <img src="images/DatVu.jpg" class="img-fluid rounded-circle mb-3" alt=""
+                            id="profilePicture">
+                          <p class="h4 mb-1" id="profileName">Dat Vu</p>
+                        </div>
+                      </div>
+                      <!-- Email Row -->
+                      <div class="row p-1 profileRow">
+                        <div class="col-6 d-flex justify-content-start align-items-center">
+                          <p class="profileInformation h5">Email</p>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end">
+                          <p class="profileInformationContent">mct4240@gmail.com</p>
+                        </div>
+                      </div>
+                      <!-- Gender Row -->
+                      <div class="row p-1">
+                        <div class="col-6 d-flex justify-content-start align-items-center">
+                          <p class="profileInformation h5">Gender</p>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end">
+                          <p class="profileInformationContent">Male</p>
+                        </div>
+                      </div>
+                      <!-- Time Row -->
+                      <div class="row p-1 profileRow">
+                        <div class="col-6 d-flex justify-content-start align-items-center">
+                          <p class="profileInformation h5">Activity</p>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end">
+                          <p class="profileInformationContent">Cycling</p>
+                        </div>
+                      </div>
+
+                      <!-- Time Row -->
+                      <div class="row p-1">
+                        <div class="col-6 d-flex justify-content-start align-items-center">
+                          <p class="profileInformation h5">Time</p>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end">
+                          <p class="profileInformationContent">2:00pm - 4:00pm</p>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <button type="button" class="btn btn-block btn-large btn-success">Pick as Partner</button>
+                      </div>
+                    </div>
+                    <div class="col-1"></div>
+                  </div>
+
+                  <!-- END OF CARD!!!!!!!!!!! -->
+
+                  <!-- Match Card -->
+                  <div class="row p-3">
+                    <div class="col-1"></div>
+                    <div class="col-10 m-2" id="matchCard">
+                      <div class="row p-2">
+                        <div class="col-12 mt-3 text-center">
+                          <img src="images/DatVu.jpg" class="img-fluid rounded-circle mb-3" alt=""
+                            id="profilePicture">
+                          <p class="h4 mb-1" id="profileName">Dat Vu</p>
+                        </div>
+                      </div>
+                      <!-- Email Row -->
+                      <div class="row p-1 profileRow">
+                        <div class="col-6 d-flex justify-content-start align-items-center">
+                          <p class="profileInformation h5">Email</p>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end">
+                          <p class="profileInformationContent">mct4240@gmail.com</p>
+                        </div>
+                      </div>
+                      <!-- Gender Row -->
+                      <div class="row p-1">
+                        <div class="col-6 d-flex justify-content-start align-items-center">
+                          <p class="profileInformation h5">Gender</p>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end">
+                          <p class="profileInformationContent">Male</p>
+                        </div>
+                      </div>
+                      <!-- Time Row -->
+                      <div class="row p-1 profileRow">
+                        <div class="col-6 d-flex justify-content-start align-items-center">
+                          <p class="profileInformation h5">Activity</p>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end">
+                          <p class="profileInformationContent">Cycling</p>
+                        </div>
+                      </div>
+
+                      <!-- Time Row -->
+                      <div class="row p-1">
+                        <div class="col-6 d-flex justify-content-start align-items-center">
+                          <p class="profileInformation h5">Time</p>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end">
+                          <p class="profileInformationContent">2:00pm - 4:00pm</p>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <button type="button" class="btn btn-block btn-large btn-success">Pick as Partner</button>
+                      </div>
+                    </div>
+                    <div class="col-1"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </form>
-  <div class="row">
+  <div class="row" style="clear:both;">
     <!-- Biking -->
     <div class="activity-square left-activity-square col-6 text-center p-3" id="biking" data-value="Biking">
       <img class="activity-image mb-4" src="images/activityIcons/biking.png" alt="Biking">
@@ -41,24 +182,28 @@
   </div>
   <div class="row">
     <!-- Basketball -->
-    <div class="activity-square left-activity-square activity-square-body col-6 text-center p-3" id="basketball" data-value="Basketball">
+    <div class="activity-square left-activity-square activity-square-body col-6 text-center p-3" id="basketball"
+      data-value="Basketball">
       <img class="activity-image mb-4" src="images/activityIcons/basketball.png" alt="Basketball">
       <p class="h2">Basketball</p>
     </div>
     <!-- Swimming -->
-    <div class="activity-square right-activity-square activity-square-body col-6 text-center p-3" id="swimming" data-value="Swimming">
+    <div class="activity-square right-activity-square activity-square-body col-6 text-center p-3" id="swimming"
+      data-value="Swimming">
       <img class="activity-image mb-4 mt-5" src="images/activityIcons/swimming.png" alt="Swimming">
       <p class="h2 mt-4">Swimming</p>
     </div>
   </div>
   <div class="row">
     <!-- Yoga -->
-    <div class="activity-square left-activity-square activity-square-body col-6 text-center p-3" id="yoga" data-value="Yoga">
+    <div class="activity-square left-activity-square activity-square-body col-6 text-center p-3" id="yoga"
+      data-value="Yoga">
       <img class="activity-image mb-4" src="images/activityIcons/yoga.png" alt="Yoga">
       <p class="h2">Yoga</p>
     </div>
     <!-- Running -->
-    <div class="activity-square right-activity-square activity-square-body col-6 text-center p-3" id="running" data-value="Running">
+    <div class="activity-square right-activity-square activity-square-body col-6 text-center p-3" id="running"
+      data-value="Running">
       <img class="activity-image mb-4" src="images/activityIcons/running.png" alt="Running">
       <p class="h2">Running</p>
     </div>
