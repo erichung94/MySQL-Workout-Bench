@@ -9,6 +9,9 @@ $(document).ready(function() {
         $("#profilePicture").attr("src", data.picture);
     });
 
+
+    matchUsers();
+
     $("#pictureChange").click(function () {
         $("#picModal").modal();
     });
@@ -34,6 +37,12 @@ $(document).ready(function() {
             // If there's an error, handle it by throwing up a bootstrap alert
         }).catch(handleLoginErr);
     }
+
+
+    function matchUsers() {
+        $.get("/api/match").then(data => console.log(data));
+    }
+
 
     function handleLoginErr(err) {
         $("#alert .msg").text(err.responseJSON);
