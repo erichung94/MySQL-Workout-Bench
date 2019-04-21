@@ -36,6 +36,7 @@ module.exports = function(app) {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             gender: req.body.gender,
+            localLocation: req.body.localLocation,
             email: req.body.email,
             picture: findGender(req.body.gender),
             password: req.body.password
@@ -156,6 +157,7 @@ module.exports = function(app) {
                         picture: matchedUser.picture,
                         firstName: matchedUser.firstName,
                         gender: matchedUser.gender,
+                        email: matchedUser.email,
                         workouts: matchedUser.Workouts.map(matchedActivity => ({ 
                             activity: matchedActivity.activity,
                             time: matchedActivity.time,
@@ -163,7 +165,7 @@ module.exports = function(app) {
                     };
                     return resultsObj;
                 });
-                console.log(mappedResults)
+                console.log(mappedResults);
                 res.json(mappedResults);
             });
         });

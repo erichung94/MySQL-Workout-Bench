@@ -6,6 +6,7 @@ $(document).ready(function() {
         $(".member-lastname").text(data.lastName);
         $(".member-email").text(data.email);
         $(".member-gender").text(data.gender);
+        $(".member-localLocation").text(data.localLocation);
         $("#profilePicture").attr("src", data.picture);
     });
 
