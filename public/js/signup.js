@@ -10,6 +10,7 @@ $(document).ready(function() {
         var genderInput = $("#inputGender").val();
         var emailInput = $("input#email-input");
         var passwordInput = $("input#password-input");
+        var locationInput = $("#inputLocation").val();
 
         console.log("submitted");
         event.preventDefault();
@@ -17,6 +18,7 @@ $(document).ready(function() {
             firstName: firstNameInput.val().trim(),
             lastName: lastNameInput.val().trim(),
             gender: genderInput,
+            localLocation: locationInput,
             email: emailInput.val().trim(),
             password: passwordInput.val().trim()
         };
@@ -25,7 +27,7 @@ $(document).ready(function() {
             return;
         }
         // If we have all the fields, run the signUpUser function
-        signUpUser(userData.firstName, userData.lastName, userData.email, userData.gender, userData.password);
+        signUpUser(userData.firstName, userData.lastName, userData.email, userData.gender, userData.localLocation, userData.password);
         firstNameInput.val("");
         lastNameInput.val("");
         emailInput.val("");
@@ -34,11 +36,12 @@ $(document).ready(function() {
 
     // Does a post to the signup route. If successful, we are redirected to the profile page
     // Otherwise we log any errors
-    function signUpUser(firstName, lastName, email, gender, password) {
+    function signUpUser(firstName, lastName, email, gender, localLocation, password) {
         $.post("/api/signup", {
             firstName: firstName,
             lastName: lastName,
             gender: gender,
+            localLocation: localLocation,
             email: email,
             password: password
         }).then(function(data) {

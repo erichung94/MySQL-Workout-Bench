@@ -19,6 +19,9 @@ module.exports = function(sequelize, DataTypes) {
         gender: { 
             type: DataTypes.STRING,
         },
+        localLocation: { 
+            type: DataTypes.STRING,
+        },
         picture: { 
             type: DataTypes.TEXT,
         },
