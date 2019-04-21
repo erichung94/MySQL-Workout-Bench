@@ -37,10 +37,10 @@ $(document).ready(function() {
     
     // Grab value from forms (location & time)
     var workoutForm = $("form.workout");
-    var timeInput = $("option:selected").val();
- 
+    
     workoutForm.on("submit", function() {
         event.preventDefault();
+        var timeInput = $("#workoutTime").val();
         // alert(timeInput+" "+activity);
         var workoutData = {
             activity: activity,
@@ -51,8 +51,6 @@ $(document).ready(function() {
         updateWorkout(workoutData.activity,workoutData.time);
         
     });
-
-
 
     // Does a post to the signup route. If successful, we are redirected to the profile page
     // Otherwise we log any errors
@@ -72,9 +70,6 @@ $(document).ready(function() {
     // function match() {
     //     $.get("/api/match").then(function(data) { console.log("BIG JUICY DATA: ", data); });
     // }
-
-   
-
 
     function handleInputErr(err) {
         $("#alert .msg").text(err.responseJSON);
