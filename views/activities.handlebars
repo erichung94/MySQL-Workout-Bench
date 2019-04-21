@@ -12,7 +12,13 @@
           <option data-value="Afternoon ~Between 12 - 4pm">Afternoon ~Between 12 - 4pm</option>
           <option data-value="Evening ~Between 5 - 8pm">Evening ~Between 5 - 8pm</option>
           <option data-value="Night Owl ~Between 9 - 2am">Night Owl ~Between 9 - 2am</option>
-        </select>
+        </select>   
+      <div class="col-6">
+        <input type="search" class="form-control mb-4" placeholder="Gym Name" id="inputLocation" autocomplete="on" runat="server" >
+          <input type="hidden" id="gym" name="gym"/>
+          <input type="hidden" id="lat" name="cityLat"/>
+          <input type="hidden" id="lng" name="cityLng"/>
+      </div>
       </div>
     </div>
     <div class="row pl-2">
