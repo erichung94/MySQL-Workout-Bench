@@ -22,3 +22,6 @@ This project is currently deployed on heroku, come check it out!  [Deploy Link](
 * Beautified with CSS, Bootstrap, & Font Awesome
 
 - - -
+
+## Future Development
+* Catching User Input mistakes - pictures not pictures, login form with repeated email.
