@@ -2,8 +2,6 @@ $(document).ready(function() {
     // CSS Portion
     var prevId;
 
-    // console.log(match());
-
     $(".activity-square").on("click", function() {
         $(this).css({
             "background-color": "#33CCFF",
@@ -36,45 +34,38 @@ $(document).ready(function() {
     });
     
     // Grab value from forms (location & time)
-    var workoutForm = $("form.workout");
-    var timeInput = $("option:selected").val();
- 
-    workoutForm.on("submit", function() {
+    // var workoutForm = $("form.workout");
+    // workoutForm.on("submit", function() {
+    var submitButton = $("#activitiesSubmitButton");
+
+    submitButton.on("click", function() {
         event.preventDefault();
+        var timeInput = $("#workoutTime").val();
         // alert(timeInput+" "+activity);
         var workoutData = {
             activity: activity,
             time: timeInput,
         };
-        console.log(workoutData);
-        // write a POST request to some route (e.g. "/api/saveActivity")
-        updateWorkout(workoutData.activity,workoutData.time);
+        // write a POST request to some route (e.g. "/api/workout_data")
+        updateWorkoutAndMatchUsers(workoutData.activity,workoutData.time);
         
     });
 
-
-
     // Does a post to the signup route. If successful, we are redirected to the profile page
     // Otherwise we log any errors
-    function updateWorkout(activity,time) {
+    function updateWorkoutAndMatchUsers(activity,time) {
         console.log(activity + time);
+        console.log("dis working?");
         $.post("/api/activity", {
             activity: activity,
             time: time
-        }).then(function(data) {
-            // Then, in the callback, type window.location.replace("/profile")
-            window.location.replace(data.url);
-            // If there's an error, handle it by throwing up a bootstrap alert
-        }).catch(handleInputErr);
+        }).then(() =>
+        // instead of the console.log, you can populate the handlebar or html from here
+            $.get("/api/match").then(data => console.log(data))
+        )
+        // If there's an error, handle it by throwing up a bootstrap alert
+            .catch(handleInputErr);
     }
-
-    //this function is for testing
-    // function match() {
-    //     $.get("/api/match").then(function(data) { console.log("BIG JUICY DATA: ", data); });
-    // }
-
-   
-
 
     function handleInputErr(err) {
         $("#alert .msg").text(err.responseJSON);

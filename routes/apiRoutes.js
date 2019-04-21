@@ -67,7 +67,7 @@ module.exports = function(app) {
                         UserId: req.user.id
                     });
                 }).then(function() {
-                    res.status(200).json({url:"/profile"});
+                    res.status(200);
                 }).catch(function(err) {
                     console.log(err);
                     res.json({url:"/profile"});
