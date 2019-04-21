@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
 
+    // Creating joined table which holds UserID and WorkoutID
     var UserWorkout = sequelize.define("UserWorkout", {
-
     });
  
     // Table that links User and Workout

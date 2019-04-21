@@ -1,7 +1,9 @@
 var db = require("../models");
 var passport = require("../config/passport");
+var Op = require("sequelize").Op;
 
 module.exports = function(app) {
+
     // *****************************************************************************
     // USER AUTHENTICATION SECTION
     //
@@ -10,7 +12,6 @@ module.exports = function(app) {
     // If the user has valid login credentials, send them to the members page.
     // Otherwise the user will be sent an error
     app.post("/api/login", passport.authenticate("local"), function(req, res) {
-        console.log(req.body);
         // The redirect will happen on the front end
         res.json("/profile");
     });
@@ -47,21 +48,41 @@ module.exports = function(app) {
         });
     });
 
+
+
     // Route for grabbing user workout data.
     app.post("/api/activity", function(req, res) {
         console.log("Activity Logged!");
-        console.log(req.body);
-        db.Workout.create({
-            activity: req.body.activity,
-            time: req.body.time
-        }).then(function() {
-            // res.status(200).json({url:"/profile"});
-            res.status(200);
-            /// LYNN THIS IS WHERE MATCHING LOGIC FUNCTION NEEDS TO RUN
-        }).catch(function(err) {
-            console.log(err);
-            res.json(err);
-            // res.status(422).json(err.errors[0].message);
+        db.Workout.findOne({
+            where: {activity: req.body.activity, time: req.body.time}
+        }).then(function(c){
+            // allows users to pick the same activity and populate UserWorkout model
+            if(c === null){
+                db.Workout.create({
+                    activity: req.body.activity,
+                    time: req.body.time
+                }).then(function(v){ 
+                    db.UserWorkout.create({
+                        WorkoutId: v.dataValues.id,
+                        UserId: req.user.id
+                    });
+                }).then(function() {
+                    res.status(200).json({url:"/profile"});
+                }).catch(function(err) {
+                    console.log(err);
+                    res.json({url:"/profile"});
+                });
+            } else {
+                db.UserWorkout.create({
+                    WorkoutId: c.id,
+                    UserId: req.user.id
+                }).then(function() {
+                    res.status(200).json({url:"/profile"});
+                }).catch(function(err) {
+                    console.log(err);
+                    res.json({url:"/profile"});
+                });
+            }
         });
     });
 
@@ -110,5 +131,41 @@ module.exports = function(app) {
             });
         }
     });
-};
 
+
+    // LOGIC FOR MATCHING ///
+    //Query to find all workouts the current user has
+    app.get("/api/match", (req, res) => {
+        db.UserWorkout.findAll({
+            where: {userId: req.user.id}
+        }).then(function(findUser) {
+            console.log("This is the workout for this current user ", findUser.map(userData => userData.dataValues.WorkoutId));
+            db.User.findAll({  
+                include: [
+                    { model: db.Workout, where: {
+                        [Op.or]: findUser.map(workoutData => {
+                            var obj = {id: workoutData.dataValues.WorkoutId};
+                            return obj;
+                        })
+                    }}, 
+                ]
+            }).then(results => {
+                var mappedResults = results.map(matchData => {
+                    var matchedUser = matchData.dataValues;
+                    var resultsObj = {
+                        picture: matchedUser.picture,
+                        firstName: matchedUser.firstName,
+                        gender: matchedUser.gender,
+                        workouts: matchedUser.Workouts.map(matchedActivity => ({ 
+                            activity: matchedActivity.activity,
+                            time: matchedActivity.time,
+                        }))
+                    };
+                    return resultsObj;
+                });
+                console.log(mappedResults)
+                res.json(mappedResults);
+            });
+        });
+    });
+};

@@ -52,14 +52,12 @@ module.exports = function(sequelize, DataTypes) {
     //
     // ******************************************************************************
 
-    // Associating Users with Workouts
+    // Linking tables
     User.associate = function(models){
         models.User.belongsToMany(models.Workout, {
-            through: models.UserWorkout 
+            through: models.UserWorkout
         });
-        // User.hasMany(models.UserWorkout);
     };
-
     return User;
 };
 

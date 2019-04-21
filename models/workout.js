@@ -15,13 +15,11 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
 
-    // We're saying that a Workout should belong to an User
+    // Linking tables    
     Workout.associate = function(models) {
-        // A Workout can't be created without an  due to the foreign key constraint
         models.Workout.belongsToMany(models.User, {
             through: models.UserWorkout 
         });
-        // Workout.hasMany(models.UserWorkout);
     };    
     return Workout;
 };
