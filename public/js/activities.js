@@ -62,10 +62,14 @@ $(document).ready(function() {
         }).then(() =>
         // instead of the console.log, you can populate the handlebar or html from here
             $.get("/api/match").then(function(data) { 
-                // console.log(data);
-                for (var i = 0; i < data.length; i++) {
-                    // console.log(data[i]);
-                    buildCard(data[i]);
+                matches = data.matchedUsers;
+                if (matches === []) {
+                    alert("I'm sorry. It looks like no one is available at the chosen time to do this activity. Please try again at a later time.");
+                } else {
+                    for (var i = 0; i < matches.length; i++) {
+                        // console.log(data[i]);
+                        buildCard(matches[i]);
+                    }
                 }
             })
         )
