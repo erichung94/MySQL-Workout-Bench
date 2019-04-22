@@ -4,7 +4,7 @@
   </nav>
   <form class="workout">
     <div class="row p-2">
-      <div class="col-6">
+      <div class="col-sm-12 col-md-8 col-lg-6">
         <p class="h4">Select Workout Time</p>
         <select id="workoutTime" class="mb-2 form-control form-control-default d-inline">
           <option data-value="Early Bird ~Between 4 - 7am">Early Bird ~Between 4 - 7am</option>
@@ -12,13 +12,15 @@
           <option data-value="Afternoon ~Between 12 - 4pm">Afternoon ~Between 12 - 4pm</option>
           <option data-value="Evening ~Between 5 - 8pm">Evening ~Between 5 - 8pm</option>
           <option data-value="Night Owl ~Between 9 - 2am">Night Owl ~Between 9 - 2am</option>
-        </select>   
-      <div class="col-6">
-        <input type="search" class="form-control mb-4" placeholder="Gym Name" id="inputLocation" autocomplete="on" runat="server" >
+        </select>
+      </div>
+    </div>
+    <div class="row p-2">   
+      <div class="col-sm-12 col-md-8 col-lg-6">
+        <input type="search" class="form-control mb-2" placeholder="Gym Name" id="inputLocation" autocomplete="on" runat="server" >
           <input type="hidden" id="gym" name="gym"/>
           <input type="hidden" id="lat" name="cityLat"/>
           <input type="hidden" id="lng" name="cityLng"/>
-      </div>
       </div>
     </div>
     <div class="row pl-2">
