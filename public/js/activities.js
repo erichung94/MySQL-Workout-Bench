@@ -131,12 +131,18 @@ $(document).ready(function() {
                     </div>
                     </div>
                     <div class="row">
-                    <button type="button" class="btn btn-block btn-large btn-success">Pick as Partner</button>
+                    <button type="button" id="emailMatch" class="btn btn-block btn-large btn-success">Pick as Partner</button>
+                    <form id="fr1" method="post">
                     </div>
                 </div>
                 <div class="col-1"></div>
             </div>`
         );
+        $(document).on("click","#emailMatch",function() {
+            $("#fr1").attr("action",
+                `mailto:${object.email}?subject=Workout Match Request &message=Hi ${object.firstName}, I'd love to workout with you!`);
+            $("#fr1").submit();
+        });
     }
 
     function handleInputErr(err) {
