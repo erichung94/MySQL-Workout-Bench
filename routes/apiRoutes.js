@@ -139,6 +139,7 @@ module.exports = function(app) {
     app.get("/api/match", (req, res) => {
         db.UserWorkout.findAll({
             where: {userId: req.user.id}
+        // this function finds all match users
         }).then(function(findUser) {
             console.log("This is the workout for this current user ", findUser.map(userData => userData.dataValues.WorkoutId));
             db.User.findAll({  
@@ -150,12 +151,31 @@ module.exports = function(app) {
                         })
                     }}, 
                 ]
+                //format current user
             }).then(results => {
-                var mappedResults = results.map(matchData => {
-                    var matchedUser = matchData.dataValues;
+                var ourID = req.user.id;
+                var currentUser = results.find(b => b.dataValues.id === ourID);
+                var formattedCurrentUserOrSomething = {
+                    picture: currentUser.picture,
+                    firstName: currentUser.firstName,
+                    email: currentUser.email,
+                    gender: currentUser.gender,
+                    workouts: currentUser.Workouts.map(matchedActivity => ({ 
+                        activity: matchedActivity.activity,
+                        time: matchedActivity.time
+                    }))
+                };
+                // remove yoself from the rest
+                var notOneOfUs = results.filter(v => {
+                    return v.dataValues.id !== ourID;
+                });
+                //formatted match users
+                var formattedResults = notOneOfUs.map(User => {
+                    var matchedUser = User.dataValues;
                     var resultsObj = {
                         picture: matchedUser.picture,
                         firstName: matchedUser.firstName,
+                        email: matchedUser.email,
                         gender: matchedUser.gender,
                         email: matchedUser.email,
                         workouts: matchedUser.Workouts.map(matchedActivity => ({ 
@@ -165,9 +185,12 @@ module.exports = function(app) {
                     };
                     return resultsObj;
                 });
-                console.log(mappedResults);
-                res.json(mappedResults);
-                // res.render("activities", mappedResults);
+                // stored format version for mary
+                var finalFinalResults = {
+                    currentUser: formattedCurrentUserOrSomething,
+                    matchedUsers: formattedResults
+                };
+                res.json(finalFinalResults);
             });
         });
     });
