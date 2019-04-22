@@ -167,6 +167,7 @@ module.exports = function(app) {
                 });
                 console.log(mappedResults);
                 res.json(mappedResults);
+                // res.render("activities", mappedResults);
             });
         });
     });
