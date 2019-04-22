@@ -55,13 +55,14 @@ module.exports = function(app) {
     app.post("/api/activity", function(req, res) {
         console.log("Activity Logged!");
         db.Workout.findOne({
-            where: {activity: req.body.activity, time: req.body.time}
+            where: {activity: req.body.activity, time: req.body.time, location:req.body.location}
         }).then(function(c){
             // allows users to pick the same activity and populate UserWorkout model
             if(c === null){
                 db.Workout.create({
                     activity: req.body.activity,
-                    time: req.body.time
+                    time: req.body.time,
+                    location: req.body.location
                 }).then(function(v){ 
                     db.UserWorkout.create({
                         WorkoutId: v.dataValues.id,
