@@ -29,5 +29,7 @@ This project is currently deployed on heroku, come check it out!  [Deploy Link](
 - [ ] Make sure user is putting in an image into the update image URL. If not, return error message.
 - [ ] Have logic drill down further & let the users input more detailed workouts for matches (especially for weight lifting).
 - [ ] Require user to choose a gender on sign up page.
+- [ ] Fool proof the display function and notify users if there is no match available.
+- [ ] Develop the app so users can contact each other in chat instead of emailing each other.
 
 - - -
