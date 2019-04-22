@@ -41,24 +41,28 @@ $(document).ready(function() {
     submitButton.on("click", function() {
         event.preventDefault();
         var timeInput = $("#workoutTime").val();
+        var inputLocation = document.getElementById("inputLocation").value;
+        console.log(inputLocation);
         // alert(timeInput+" "+activity);
         var workoutData = {
             activity: activity,
             time: timeInput,
+            location: inputLocation
         };
         // write a POST request to some route (e.g. "/api/workout_data")
-        updateWorkoutAndMatchUsers(workoutData.activity,workoutData.time);
+        updateWorkoutAndMatchUsers(workoutData.activity,workoutData.time, workoutData.location);
         
     });
 
     // Does a post to the signup route. If successful, we are redirected to the profile page
     // Otherwise we log any errors
-    function updateWorkoutAndMatchUsers(activity,time) {
-        console.log(activity + time);
+    function updateWorkoutAndMatchUsers(activity,time,location) {
+        console.log(activity + time + location);
         console.log("dis working?");
         $.post("/api/activity", {
             activity: activity,
-            time: time
+            time: time,
+            location: location
         }).then(() =>
         // instead of the console.log, you can populate the handlebar or html from here
             $.get("/api/match").then(function(data) { 
