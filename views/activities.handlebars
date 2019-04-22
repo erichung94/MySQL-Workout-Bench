@@ -41,120 +41,8 @@
               </div>
               <!-- Modal Body Content -->
               <div class="modal-body">
-                <div class="container-fluid">
-                  <!-- Match -->
-                  <div class="row p-3">
-                    {{!-- {{#each Users}} --}}
-                    {{!-- {{/each}} --}}
-                    <div class="col-1"></div>
-                    <div class="col-10 m-2" id="matchCard">
-                      <div class="row p-2">
-                        <div class="col-12 mt-3 text-center">
-                          <img src="images/DatVu.jpg" class="img-fluid rounded-circle mb-3" alt=""
-                            id="profilePicture">
-                          <p class="h4 mb-1" id="profileName">Dat Vu</p>
-                        </div>
-                      </div>
-                      <!-- Email Row -->
-                      <div class="row p-1 profileRow">
-                        <div class="col-6 d-flex justify-content-start align-items-center">
-                          <p class="profileInformation h5">Email</p>
-                        </div>
-                        <div class="col-6 d-flex justify-content-end">
-                          <p class="profileInformationContent">mct4240@gmail.com</p>
-                        </div>
-                      </div>
-                      <!-- Gender Row -->
-                      <div class="row p-1">
-                        <div class="col-6 d-flex justify-content-start align-items-center">
-                          <p class="profileInformation h5">Gender</p>
-                        </div>
-                        <div class="col-6 d-flex justify-content-end">
-                          <p class="profileInformationContent">Male</p>
-                        </div>
-                      </div>
-                      <!-- Time Row -->
-                      <div class="row p-1 profileRow">
-                        <div class="col-6 d-flex justify-content-start align-items-center">
-                          <p class="profileInformation h5">Activity</p>
-                        </div>
-                        <div class="col-6 d-flex justify-content-end">
-                          <p class="profileInformationContent">Cycling</p>
-                        </div>
-                      </div>
-
-                      <!-- Time Row -->
-                      <div class="row p-1">
-                        <div class="col-6 d-flex justify-content-start align-items-center">
-                          <p class="profileInformation h5">Time</p>
-                        </div>
-                        <div class="col-6 d-flex justify-content-end">
-                          <p class="profileInformationContent">2:00pm - 4:00pm</p>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <button type="button" class="btn btn-block btn-large btn-success">Pick as Partner</button>
-                      </div>
-                    </div>
-                    <div class="col-1"></div>
-                  </div>
-
-                  <!-- END OF CARD!!!!!!!!!!! -->
-
-                  <!-- Match Card -->
-                  <div class="row p-3">
-                    <div class="col-1"></div>
-                    <div class="col-10 m-2" id="matchCard">
-                      <div class="row p-2">
-                        <div class="col-12 mt-3 text-center">
-                          <img src="images/DatVu.jpg" class="img-fluid rounded-circle mb-3" alt=""
-                            id="profilePicture">
-                          <p class="h4 mb-1" id="profileName">Dat Vu</p>
-                        </div>
-                      </div>
-                      <!-- Email Row -->
-                      <div class="row p-1 profileRow">
-                        <div class="col-6 d-flex justify-content-start align-items-center">
-                          <p class="profileInformation h5">Email</p>
-                        </div>
-                        <div class="col-6 d-flex justify-content-end">
-                          <p class="profileInformationContent">mct4240@gmail.com</p>
-                        </div>
-                      </div>
-                      <!-- Gender Row -->
-                      <div class="row p-1">
-                        <div class="col-6 d-flex justify-content-start align-items-center">
-                          <p class="profileInformation h5">Gender</p>
-                        </div>
-                        <div class="col-6 d-flex justify-content-end">
-                          <p class="profileInformationContent">Male</p>
-                        </div>
-                      </div>
-                      <!-- Time Row -->
-                      <div class="row p-1 profileRow">
-                        <div class="col-6 d-flex justify-content-start align-items-center">
-                          <p class="profileInformation h5">Activity</p>
-                        </div>
-                        <div class="col-6 d-flex justify-content-end">
-                          <p class="profileInformationContent">Cycling</p>
-                        </div>
-                      </div>
-
-                      <!-- Time Row -->
-                      <div class="row p-1">
-                        <div class="col-6 d-flex justify-content-start align-items-center">
-                          <p class="profileInformation h5">Time</p>
-                        </div>
-                        <div class="col-6 d-flex justify-content-end">
-                          <p class="profileInformationContent">2:00pm - 4:00pm</p>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <button type="button" class="btn btn-block btn-large btn-success">Pick as Partner</button>
-                      </div>
-                    </div>
-                    <div class="col-1"></div>
-                  </div>
+                <div class="container-fluid" id="match-content">
+                  <!-- Match populated through JQuery-->
                 </div>
               </div>
               <!-- <div class="modal-footer">
@@ -210,3 +98,5 @@
   </div>
 </div>
 <script type="text/javascript" src="js/activities.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFtzSO-5M7RAhGkouX3IzEfJ5_uDGCcbY&libraries=places&type=gym"></script>
+<script type="text/javascript" src="js/map.js"></script>
